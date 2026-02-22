@@ -63,7 +63,7 @@ const tiers = [
 
 export function Pricing() {
   return (
-    <section className="py-24 relative" id="pricing">
+    <section className="py-24 relative section-alt" id="pricing">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,8 +91,8 @@ export function Pricing() {
               transition={{ duration: 0.4, delay: i * 0.15 }}
               className={`rounded-2xl p-8 border ${
                 tier.highlighted
-                  ? "border-[#00d4ff]/30 bg-[#00d4ff]/5 shadow-[0_0_60px_rgba(0,212,255,0.1)]"
-                  : "border-white/8 bg-white/[0.02]"
+                  ? "border-[#00d4ff]/30 bg-[rgba(0,212,255,0.06)] shadow-[0_0_60px_rgba(0,212,255,0.1)]"
+                  : "border-white/10 bg-[rgba(26,26,40,0.7)]"
               }`}
             >
               {tier.highlighted && (

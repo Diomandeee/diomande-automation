@@ -92,33 +92,54 @@ body {
 
 /* Glass card */
 .glass-card {
-  background: rgba(17, 17, 24, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(26, 26, 40, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 212, 255, 0.2);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.08);
+  background: rgba(30, 30, 48, 0.9);
+  border-color: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 4px 40px rgba(0, 212, 255, 0.08);
+}
+
+/* Section container */
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section with subtle background alternation */
+.section-alt {
+  background: rgba(17, 17, 26, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 /* Terminal styling */
 .terminal {
-  background: #0d0d14;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0c0c16;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0.75rem;
   font-family: var(--font-mono);
   overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .terminal-header {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   padding: 0.75rem 1rem;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .terminal-dot {
@@ -146,6 +167,12 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Form select dropdown fix for dark theme */
+select option {
+  background: #1a1a28;
+  color: #f0f0f5;
 }
 
 /* Selection */

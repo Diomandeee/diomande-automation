@@ -1,0 +1,58 @@
+---
+title: Team Decomposition
+description: How complex tasks are split into parallel subtasks across agents.
+order: 11
+category: Features
+---
+
+## Overview
+
+Team decomposition takes a complex task and automatically splits it into independent subtasks that can be executed in parallel across multiple AI agents. After all subtasks complete, the results are synthesized into a coherent final output.
+
+## How It Works
+
+When you submit a team task:
+
+```
+/team Build a REST API with authentication, CRUD operations, and tests
+```
+
+The system:
+
+1. **Analyzes** the task to identify independent subtasks
+2. **Decomposes** into parallel work units
+3. **Assigns** each subtask to an AI agent with the optimal model
+4. **Executes** all subtasks in parallel
+5. **Synthesizes** results into a unified output
+
+## Example Decomposition
+
+```
+Task: "Build a REST API with auth, CRUD, and tests"
+
+Subtask 1: Database schema and models [Claude]
+Subtask 2: Authentication middleware [Claude]
+Subtask 3: CRUD endpoints [Gemini]
+Subtask 4: Test suite [Claude]
+
+Execution: parallel
+Synthesis: merge all outputs into complete API
+```
+
+## Synthesis
+
+After all subtasks complete, the synthesis step:
+
+- Resolves any conflicts between subtask outputs
+- Ensures consistency across all generated code
+- Merges results into a unified deliverable
+- Reports the complete result with per-subtask timing
+
+## When to Use Team Tasks
+
+Team decomposition is most effective for:
+
+- **Multi-file projects** — building features that span multiple files
+- **Full-stack features** — frontend + backend + tests in one request
+- **Documentation projects** — multiple doc pages generated in parallel
+- **Refactoring tasks** — consistent changes across many files

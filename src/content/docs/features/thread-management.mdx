@@ -1,0 +1,55 @@
+---
+title: Thread Management
+description: Thread lifecycle management for task isolation.
+order: 14
+category: Features
+---
+
+## Overview
+
+Every task gets its own dedicated thread with full lifecycle management. This prevents channel pollution, keeps task context isolated, and enables clean archival of completed work.
+
+## Thread Lifecycle
+
+Threads transition through three states:
+
+```
+ACTIVE → IDLE → ARCHIVED
+```
+
+- **ACTIVE** — task is being processed, results are streaming
+- **IDLE** — task is complete, thread remains accessible
+- **ARCHIVED** — thread is archived after the idle timeout
+
+## Lifecycle Configuration
+
+Default thresholds (configurable per client):
+
+- **Active → Idle** — automatic when task execution completes
+- **Idle → Archived** — 24 hours of no activity
+- **Unarchive** — any new message in the thread reactivates it
+
+## Thread Naming
+
+Threads are named with a consistent format:
+
+```
+task-{short-id} | {model} | {status}
+```
+
+Example: `task-a3f7bc21 | Claude | Complete`
+
+## Channel Routing
+
+Different Discord channels can be mapped to different configurations:
+
+- `#engineering` → code tasks, Claude model, high priority
+- `#content` → writing tasks, Claude model, normal priority
+- `#quick` → simple tasks, fastest model, low priority
+
+## Benefits
+
+- **No channel pollution** — every task is contained in its own thread
+- **Full context** — the entire task conversation lives in one place
+- **Clean history** — archived threads don't clutter active channels
+- **Easy retrieval** — search threads by task ID or content

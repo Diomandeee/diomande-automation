@@ -1,0 +1,66 @@
+---
+title: Discord Integration
+description: Setup guide for the Discord gateway.
+order: 20
+category: Integrations
+---
+
+## Overview
+
+Discord is the primary gateway for most Claw bot deployments. The bot joins your server, listens for commands, creates threads for task execution, and delivers results in real-time.
+
+## Setup
+
+### 1. Create a Discord Server
+
+If you don't have one, create a Discord server for your team. We recommend dedicated channels for different task types.
+
+### 2. Bot Invitation
+
+We'll provide a bot invitation link during onboarding. The bot requires these permissions:
+
+- Send Messages
+- Create Public Threads
+- Send Messages in Threads
+- Manage Threads
+- Read Message History
+- Use Slash Commands
+
+### 3. Channel Configuration
+
+Map channels to task configurations:
+
+```
+#engineering → model: claude, priority: high
+#content     → model: claude, priority: normal
+#quick       → model: gemini, priority: low
+```
+
+## Commands
+
+### Task Commands
+
+- `/task <content>` — submit a single task
+- `/team <content>` — submit for multi-agent decomposition
+- `/pulse <content>` — start an autonomous session
+
+### Management Commands
+
+- `/status` — check bot status and mesh health
+- `/threads` — list active threads
+- `/history` — recent task history
+
+## Thread Behavior
+
+Every task creates a new thread in the channel where it was submitted. The thread contains:
+
+- The original task content
+- Execution status updates
+- The final result
+- Timing information
+
+Threads auto-archive after 24 hours of inactivity.
+
+## Rate Limits
+
+The bot respects Discord's rate limits automatically. If you're submitting many tasks in rapid succession, they'll be queued and processed in order.

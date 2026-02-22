@@ -1,0 +1,35 @@
+---
+title: SMS Integration
+description: Text-based task dispatch via SMS.
+order: 23
+category: Integrations
+---
+
+## Overview
+
+The SMS gateway allows task submission via text message. Send a text to your dedicated number, and receive results back as SMS.
+
+## Setup
+
+During onboarding, we provision a dedicated phone number for your Claw bot instance via Twilio. Your team members can submit tasks by texting this number.
+
+## Usage
+
+Text any task to your Claw bot number:
+
+```
+Generate a cron expression that runs every weekday at 9am EST
+```
+
+Results are sent back as SMS replies. For longer results, the response includes a link to the full output.
+
+## Limitations
+
+- SMS has a 1600-character limit per message
+- Long results include a link to the full output
+- Team decomposition is not supported via SMS
+- Binary content (code files, images) delivered via link
+
+## Availability
+
+SMS is available on **Professional** and **Enterprise** tiers.

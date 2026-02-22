@@ -1,0 +1,65 @@
+---
+title: Mesh Network
+description: Distributed execution across multiple machines.
+order: 13
+category: Features
+---
+
+## Overview
+
+The mesh network distributes task execution across multiple devices with automatic load balancing, health monitoring, and failover. Each device in the mesh operates independently while coordinating through a shared task queue.
+
+## Device Registration
+
+Each mesh device registers itself with:
+
+```typescript
+interface MeshDevice {
+  id: string;
+  hostname: string;
+  status: "online" | "offline" | "busy";
+  availableModels: string[];
+  currentLoad: number;
+  maxConcurrent: number;
+  lastHeartbeat: Date;
+}
+```
+
+## Load Balancing
+
+The mesh coordinator assigns tasks based on:
+
+1. **Device load** — percentage of max concurrent tasks in use
+2. **Model availability** — does the device have the required model?
+3. **Latency** — network distance to the coordinator
+4. **Health score** — recent success rate and response times
+
+## Health Monitoring
+
+Devices send heartbeat signals every 30 seconds. If a device misses 3 consecutive heartbeats, it's marked offline and no new tasks are routed to it.
+
+Active tasks on a failed device are automatically reassigned to healthy devices.
+
+## Scaling
+
+- **Starter** — single device (your primary machine)
+- **Professional** — up to 3 devices in the mesh
+- **Enterprise** — unlimited devices
+
+Adding a new device to the mesh takes under 5 minutes — install the agent, configure the API keys, and it auto-registers with the coordinator.
+
+## Mesh Status
+
+You can check mesh status at any time:
+
+```
+/mesh status
+
+Mesh Status:
+  device-1: online (load: 23%, tasks: 2/8)
+  device-2: online (load: 67%, tasks: 5/8)
+  device-3: offline (last seen: 2m ago)
+
+Active tasks: 7
+Queued tasks: 3
+```

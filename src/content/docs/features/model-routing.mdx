@@ -1,0 +1,51 @@
+---
+title: Model Routing
+description: How the system selects the optimal AI model for each task.
+order: 12
+category: Features
+---
+
+## Overview
+
+Intelligent model routing automatically selects the best AI model for each task based on classification. Instead of hardcoding a model, the system analyzes task content and routes to the model with the highest predicted quality for that task type.
+
+## Classification Logic
+
+The task classifier evaluates multiple dimensions:
+
+```typescript
+function classifyTask(content: string): TaskClassification {
+  // Analyze keywords, patterns, and intent
+  // Returns: { model, complexity, domain, capabilities }
+}
+```
+
+## Routing Rules
+
+- **Code generation/review** → Claude (strongest at code reasoning)
+- **Large-scale refactoring** → Claude or Codex (code-specialized models)
+- **Creative writing/prose** → Claude (best at natural language)
+- **Data analysis** → Gemini (strong at structured data)
+- **Quick lookups/simple tasks** → Fastest available model
+- **Complex reasoning** → Claude Opus (highest capability)
+
+## Available Models
+
+| Model | Strengths | Best For |
+|-------|-----------|----------|
+| Claude Sonnet | Code, reasoning, accuracy | Most tasks |
+| Claude Opus | Deep reasoning, complex analysis | Hard problems |
+| Gemini Pro | Speed, data processing | Quick tasks |
+| Codex | Code generation, completions | Pure code tasks |
+
+## Override Support
+
+You can override automatic routing with explicit model selection:
+
+```
+/task --model=opus Analyze the architectural trade-offs of microservices vs monolith
+```
+
+## Fallback Logic
+
+If the selected model is unavailable (rate limited, API down), the router automatically falls back to the next best model in the chain. Your task still gets processed — just with a different model.

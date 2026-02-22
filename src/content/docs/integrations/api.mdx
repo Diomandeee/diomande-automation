@@ -1,0 +1,90 @@
+---
+title: REST API
+description: Programmatic task submission via REST API.
+order: 21
+category: Integrations
+---
+
+## Overview
+
+The REST API allows programmatic task submission and management. Use it to integrate Claw bot into your existing tools, CI/CD pipelines, or custom applications.
+
+## Authentication
+
+All API requests require an API key in the `Authorization` header:
+
+```
+Authorization: Bearer your-api-key
+```
+
+API keys are managed in the client portal under Settings.
+
+## Endpoints
+
+### Submit a Task
+
+```
+POST /api/v1/tasks
+```
+
+```json
+{
+  "content": "Write a Python function to parse CSV files",
+  "model": "auto",
+  "priority": "normal"
+}
+```
+
+Response:
+
+```json
+{
+  "id": "a3f7bc21-...",
+  "status": "queued",
+  "estimated_start": "2s"
+}
+```
+
+### Get Task Status
+
+```
+GET /api/v1/tasks/:id
+```
+
+### List Tasks
+
+```
+GET /api/v1/tasks?status=completed&limit=20
+```
+
+### Submit Team Task
+
+```
+POST /api/v1/tasks/team
+```
+
+```json
+{
+  "content": "Build a REST API with auth and tests",
+  "max_subtasks": 5
+}
+```
+
+## Webhooks
+
+Configure webhook URLs to receive task completion notifications:
+
+```json
+{
+  "url": "https://your-app.com/webhook/claw",
+  "events": ["task.completed", "task.failed"]
+}
+```
+
+## Rate Limits
+
+API rate limits depend on your tier:
+
+- **Starter** — 60 requests/minute
+- **Professional** — 300 requests/minute
+- **Enterprise** — Custom

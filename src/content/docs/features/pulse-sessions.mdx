@@ -1,0 +1,54 @@
+---
+title: Pulse Sessions
+description: Autonomous multi-iteration development loops.
+order: 15
+category: Features
+---
+
+## Overview
+
+Pulse sessions are autonomous development loops where the AI executes multi-iteration workflows without human intervention. Each iteration builds on the previous one, with the system self-correcting and adapting based on results.
+
+## How It Works
+
+A Pulse session:
+
+1. Takes a high-level objective
+2. Plans an execution strategy
+3. Executes the first iteration
+4. Evaluates results against the objective
+5. Plans the next iteration based on what was learned
+6. Repeats until the objective is met or max iterations reached
+
+## Starting a Pulse Session
+
+```
+/pulse Build a complete user authentication system with login, signup, password reset, and session management
+```
+
+The system will:
+
+- Plan the implementation across multiple iterations
+- Execute each step autonomously
+- Report progress after each iteration
+- Deliver the final result when complete
+
+## Session Management
+
+- `/pulse status` — check current session progress
+- `/pulse pause` — pause an active session
+- `/pulse resume` — resume a paused session
+- `/pulse abort` — stop a session immediately
+
+## Use Cases
+
+Pulse sessions are ideal for:
+
+- **Feature development** — building complete features from scratch
+- **Refactoring projects** — large-scale code restructuring
+- **Documentation** — generating comprehensive docs
+- **Test suites** — building tests for existing code
+
+## Availability
+
+Pulse sessions are available on the **Enterprise** tier. They require dedicated mesh device capacity since sessions may run for extended periods.

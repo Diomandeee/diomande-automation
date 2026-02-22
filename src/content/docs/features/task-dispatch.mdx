@@ -1,0 +1,63 @@
+---
+title: Task Dispatch
+description: How tasks flow from message to execution result.
+order: 10
+category: Features
+---
+
+## Overview
+
+Task dispatch is the core pipeline that transforms an incoming message into an executed result. Every task — whether submitted via Discord, API, or SMS — flows through the same standardized pipeline.
+
+## The Pipeline
+
+### 1. Message Reception
+
+When a message arrives at any gateway, it's normalized into a standard task payload:
+
+```typescript
+interface TaskPayload {
+  content: string;
+  source: "discord" | "api" | "sms" | "telegram";
+  userId: string;
+  channelId?: string;
+  priority: "low" | "normal" | "high";
+  metadata: Record<string, unknown>;
+}
+```
+
+### 2. Task Classification
+
+The classifier analyzes the task content and determines:
+
+- **Model** — which AI model is best suited
+- **Complexity** — simple, moderate, or complex
+- **Domain** — code, prose, analysis, etc.
+- **Capabilities** — what tools the model needs (file system, web, etc.)
+
+### 3. Queue Management
+
+Tasks enter a priority queue. Higher-priority tasks are processed first. The queue also handles rate limiting and backpressure.
+
+### 4. Execution
+
+The task is sent to a mesh device for execution. The selected AI model processes the task with its full context and capabilities.
+
+### 5. Result Delivery
+
+Results stream back through the originating gateway. For Discord, this means real-time updates in the task's dedicated thread.
+
+## Task Commands
+
+- `/task <content>` — submit a single task
+- `/team <content>` — submit a task for multi-agent decomposition
+- `/pulse <content>` — start an autonomous multi-iteration session
+
+## Error Handling
+
+If a task fails, the system:
+
+1. Logs the error with full context
+2. Optionally retries with a different model
+3. Reports the failure through the originating gateway
+4. Preserves the task for manual review

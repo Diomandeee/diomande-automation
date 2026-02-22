@@ -1,0 +1,76 @@
+---
+title: Architecture
+description: System overview, data flow, and infrastructure design.
+order: 3
+category: General
+---
+
+## System Overview
+
+Claw bot is a distributed AI task execution platform composed of several interconnected subsystems:
+
+- **Gateway Layer** — multi-channel ingestion (Discord, API, SMS, Telegram)
+- **Task Queue** — priority-based queuing with classification
+- **Execution Engine** — multi-agent orchestration across mesh devices
+- **Model Router** — intelligent selection of AI models per task
+- **Knowledge System** — persistent context, semantic search, knowledge graph
+- **Thread Manager** — lifecycle management for task isolation
+
+## Data Flow
+
+```
+User Message → Gateway → Task Queue → Classifier
+                                         ↓
+                                    Model Router
+                                         ↓
+                              Mesh Device Selection
+                                         ↓
+                                   AI Execution
+                                         ↓
+                              Result Synthesis
+                                         ↓
+                            Gateway → User Response
+```
+
+## Gateway Layer
+
+The gateway layer accepts tasks from multiple sources:
+
+- **Discord** — slash commands and natural language messages
+- **REST API** — programmatic task submission with JSON payloads
+- **SMS** — text-based task dispatch via Twilio
+- **Telegram** — bot commands and inline queries
+
+Each gateway normalizes the input into a standard task format before queuing.
+
+## Execution Engine
+
+The execution engine manages task lifecycle:
+
+1. **Classification** — determines task type, complexity, required capabilities
+2. **Routing** — selects the optimal AI model based on classification
+3. **Decomposition** — for team tasks, splits into parallel subtasks
+4. **Execution** — runs the task on a mesh device with the selected model
+5. **Synthesis** — for decomposed tasks, combines subtask results
+6. **Delivery** — sends the result back through the originating gateway
+
+## Mesh Network
+
+Devices in the mesh report their status periodically:
+
+- Available AI models and API keys
+- Current load and queue depth
+- Health metrics (CPU, memory, uptime)
+- Active task count
+
+The mesh coordinator uses this information to distribute tasks optimally, with automatic failover if a device goes offline.
+
+## Supabase Backend
+
+All persistent data is stored in Supabase:
+
+- Task history and results
+- Client configurations
+- Analytics events
+- Knowledge graph entries
+- Thread state and lifecycle data

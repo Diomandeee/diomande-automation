@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { lazy, Suspense } from "react";
 import "../styles/globals.css";
+
+const ClawChat = lazy(() =>
+  import("@/components/chat/ClawChat").then((m) => ({ default: m.ClawChat }))
+);
 
 const inter = Inter({
   subsets: ["latin"],
@@ -72,6 +77,11 @@ export default function RootLayout({
 
         {/* Main Content */}
         <div className="relative z-10">{children}</div>
+
+        {/* Chat Companion */}
+        <Suspense fallback={null}>
+          <ClawChat />
+        </Suspense>
       </body>
     </html>
   );

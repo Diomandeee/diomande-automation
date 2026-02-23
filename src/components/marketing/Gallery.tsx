@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, GitBranch } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/shared/Button";
 import { projects } from "@/data/projects";
@@ -52,12 +52,20 @@ export function Gallery() {
           <p className="text-sm text-[#8888a8] mb-6">
             {projects.length} projects and counting. Join and add yours to the wall.
           </p>
-          <Link href="/projects">
-            <Button variant="secondary" size="lg" className="bg-[#00d4ff]/10 border-[#00d4ff]/20 text-[#00d4ff] hover:bg-[#00d4ff]/20">
-              Explore Full Directory
-              <ExternalLink className="w-4 h-4" />
-            </Button>
-          </Link>
+          <div className="flex items-center gap-3 justify-center flex-wrap">
+            <Link href="/projects">
+              <Button variant="secondary" size="lg" className="bg-[#00d4ff]/10 border-[#00d4ff]/20 text-[#00d4ff] hover:bg-[#00d4ff]/20">
+                Explore Full Directory
+                <ExternalLink className="w-4 h-4" />
+              </Button>
+            </Link>
+            <Link href="/projects?view=map">
+              <Button variant="secondary" size="lg" className="bg-[#8b5cf6]/10 border-[#8b5cf6]/20 text-[#8b5cf6] hover:bg-[#8b5cf6]/20">
+                Explore Connections
+                <GitBranch className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

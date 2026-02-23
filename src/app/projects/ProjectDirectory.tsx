@@ -1,12 +1,18 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect, useRef } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef, lazy, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Filter, Search, X } from "lucide-react";
+import { Filter, Search, X, LayoutGrid, GitBranch } from "lucide-react";
 import { projects, categories, type Maturity, type DeviceType } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { trackEvent } from "@/lib/analytics";
+
+const InterconnectionMap = lazy(() =>
+  import("@/components/projects/InterconnectionMap").then((m) => ({
+    default: m.InterconnectionMap,
+  }))
+);
 
 const allCategories = ["All" as const, ...categories];
 
@@ -30,6 +36,8 @@ export function ProjectDirectory() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  const viewParam = searchParams.get("view");
+  const [view, setView] = useState<"grid" | "map">(viewParam === "map" ? "map" : "grid");
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [debouncedQuery, setDebouncedQuery] = useState(query);
   const [activeCategory, setActiveCategory] = useState(searchParams.get("category") || "All");
@@ -130,115 +138,159 @@ export function ProjectDirectory() {
         </p>
       </motion.div>
 
-      {/* Search */}
-      <div className="relative mb-6 max-w-xl">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7a7a95]" />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search projects, tags, tech..."
-          className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white/5 border border-white/[0.08] text-white text-sm placeholder:text-[#6b6b80] focus:outline-none focus:border-[#00d4ff]/30 focus:bg-white/[0.07] transition-colors"
-        />
-        {query && (
+      {/* View toggle */}
+      <div className="flex items-center gap-2 mb-6">
+        {(
+          [
+            { key: "grid" as const, icon: LayoutGrid, label: "Grid" },
+            { key: "map" as const, icon: GitBranch, label: "Map" },
+          ] as const
+        ).map(({ key, icon: Icon, label }) => (
           <button
-            onClick={() => setQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b6b80] hover:text-white cursor-pointer"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        )}
-      </div>
-
-      {/* Category filter */}
-      <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-2">
-        <Filter className="w-4 h-4 text-[#7a7a95] shrink-0" />
-        {counts.map((cat) => (
-          <button
-            key={cat.name}
-            onClick={() => setActiveCategory(cat.name)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
-              activeCategory === cat.name
+            key={key}
+            onClick={() => {
+              setView(key);
+              const sp = new URLSearchParams(searchParams.toString());
+              if (key === "map") sp.set("view", "map");
+              else sp.delete("view");
+              const qs = sp.toString();
+              router.replace(qs ? `/projects?${qs}` : "/projects", { scroll: false });
+            }}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+              view === key
                 ? "bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20"
                 : "bg-white/5 text-[#7a7a95] border border-white/5 hover:text-white hover:border-white/10"
             }`}
           >
-            {cat.name}
-            <span className="ml-1.5 opacity-60">{cat.count}</span>
+            <Icon className="w-3.5 h-3.5" />
+            {label}
           </button>
         ))}
       </div>
 
-      {/* Maturity + Device filters */}
-      <div className="flex flex-wrap items-center gap-4 mb-10">
-        <div className="flex items-center gap-1.5">
-          <span className="text-xs text-[#6b6b80] mr-1">Maturity:</span>
-          {maturityOptions.map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => setMaturityFilter(opt.value)}
-              className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors cursor-pointer ${
-                maturityFilter === opt.value
-                  ? "bg-[#8b5cf6]/10 text-[#8b5cf6] border border-[#8b5cf6]/20"
-                  : "bg-white/5 text-[#6b6b80] border border-transparent hover:text-white"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="text-xs text-[#6b6b80] mr-1">Device:</span>
-          {deviceOptions.map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => setDeviceFilter(opt.value)}
-              className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors cursor-pointer ${
-                deviceFilter === opt.value
-                  ? "bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20"
-                  : "bg-white/5 text-[#6b6b80] border border-transparent hover:text-white"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      </div>
+      {view === "map" ? (
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center h-96 text-[#6b6b80]">
+              Loading interconnection map...
+            </div>
+          }
+        >
+          <InterconnectionMap />
+        </Suspense>
+      ) : (
+        <>
+          {/* Search */}
+          <div className="relative mb-6 max-w-xl">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7a7a95]" />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search projects, tags, tech..."
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white/5 border border-white/[0.08] text-white text-sm placeholder:text-[#6b6b80] focus:outline-none focus:border-[#00d4ff]/30 focus:bg-white/[0.07] transition-colors"
+            />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b6b80] hover:text-white cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
 
-      {/* Result count */}
-      {(debouncedQuery || maturityFilter !== "all" || deviceFilter !== "all") && (
-        <p className="text-sm text-[#7a7a95] mb-4">
-          {filtered.length} project{filtered.length !== 1 ? "s" : ""} found
-        </p>
-      )}
+          {/* Category filter */}
+          <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-2">
+            <Filter className="w-4 h-4 text-[#7a7a95] shrink-0" />
+            {counts.map((cat) => (
+              <button
+                key={cat.name}
+                onClick={() => setActiveCategory(cat.name)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
+                  activeCategory === cat.name
+                    ? "bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20"
+                    : "bg-white/5 text-[#7a7a95] border border-white/5 hover:text-white hover:border-white/10"
+                }`}
+              >
+                {cat.name}
+                <span className="ml-1.5 opacity-60">{cat.count}</span>
+              </button>
+            ))}
+          </div>
 
-      {/* Project grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filtered.map((project, i) => (
-          <ProjectCard
-            key={project.slug}
-            project={project}
-            variant="directory"
-            index={i}
-          />
-        ))}
-      </div>
+          {/* Maturity + Device filters */}
+          <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs text-[#6b6b80] mr-1">Maturity:</span>
+              {maturityOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => setMaturityFilter(opt.value)}
+                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                    maturityFilter === opt.value
+                      ? "bg-[#8b5cf6]/10 text-[#8b5cf6] border border-[#8b5cf6]/20"
+                      : "bg-white/5 text-[#6b6b80] border border-transparent hover:text-white"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs text-[#6b6b80] mr-1">Device:</span>
+              {deviceOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => setDeviceFilter(opt.value)}
+                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                    deviceFilter === opt.value
+                      ? "bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20"
+                      : "bg-white/5 text-[#6b6b80] border border-transparent hover:text-white"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
-      {filtered.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-[#7a7a95] text-lg">No projects match your filters.</p>
-          <button
-            onClick={() => {
-              setQuery("");
-              setActiveCategory("All");
-              setMaturityFilter("all");
-              setDeviceFilter("all");
-            }}
-            className="mt-3 text-sm text-[#00d4ff] hover:underline cursor-pointer"
-          >
-            Clear all filters
-          </button>
-        </div>
+          {/* Result count */}
+          {(debouncedQuery || maturityFilter !== "all" || deviceFilter !== "all") && (
+            <p className="text-sm text-[#7a7a95] mb-4">
+              {filtered.length} project{filtered.length !== 1 ? "s" : ""} found
+            </p>
+          )}
+
+          {/* Project grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filtered.map((project, i) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                variant="directory"
+                index={i}
+              />
+            ))}
+          </div>
+
+          {filtered.length === 0 && (
+            <div className="text-center py-20">
+              <p className="text-[#7a7a95] text-lg">No projects match your filters.</p>
+              <button
+                onClick={() => {
+                  setQuery("");
+                  setActiveCategory("All");
+                  setMaturityFilter("all");
+                  setDeviceFilter("all");
+                }}
+                className="mt-3 text-sm text-[#00d4ff] hover:underline cursor-pointer"
+              >
+                Clear all filters
+              </button>
+            </div>
+          )}
+        </>
       )}
 
       {/* Stats footer */}

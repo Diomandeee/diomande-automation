@@ -8,7 +8,7 @@ import { Button } from "@/components/shared/Button";
 
 const navLinks = [
   { href: "#gallery", label: "Gallery" },
-  { href: "#community", label: "What You Get" },
+  { href: "/projects", label: "Projects" },
   { href: "#membership", label: "Membership" },
   { href: "/docs", label: "Docs" },
 ];

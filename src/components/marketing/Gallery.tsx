@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Clock, ExternalLink } from "lucide-react";
-import { Badge } from "@/components/shared/Badge";
+import Link from "next/link";
+import { Button } from "@/components/shared/Button";
 
 interface Project {
   id: string;
@@ -18,81 +19,161 @@ const projects: Project[] = [
   {
     id: "1",
     name: "SecuriClaw",
-    builder_name: "Mo Diomande",
+    builder_name: "Mo",
     description:
-      "AI-powered security camera system with face recognition, pose detection, and live streaming",
-    tags: ["iOS", "Computer Vision", "Security"],
+      "AI security camera with face recognition, pose detection, and live streaming from a spare iPhone",
+    tags: ["iOS", "Vision", "Security"],
     build_hours: 48,
     featured: true,
   },
   {
     id: "2",
     name: "SpeakFlow",
-    builder_name: "Mo Diomande",
+    builder_name: "Mo",
     description:
-      "Speech-to-text injection tool with floating pill UI and system-wide keyboard integration",
-    tags: ["macOS", "Speech AI", "Accessibility"],
+      "Voice OS — talk and it types anywhere on your Mac. System-wide speech-to-text injection",
+    tags: ["macOS", "Voice", "Accessibility"],
     build_hours: 36,
     featured: true,
   },
   {
     id: "3",
-    name: "Spore",
-    builder_name: "Mo Diomande",
+    name: "VisionClaw",
+    builder_name: "Mo",
     description:
-      "Idea cultivation garden with 3D visualization, evolution engine, and seasonal themes",
-    tags: ["iOS", "Visualization", "Productivity"],
+      "AI assistant for Meta Ray-Ban smart glasses. Voice + vision conversation in real-time",
+    tags: ["iOS", "Wearable", "Gemini"],
     build_hours: 32,
     featured: true,
   },
   {
     id: "4",
-    name: "Creative Director",
-    builder_name: "Mo Diomande",
+    name: "Spore",
+    builder_name: "Mo",
     description:
-      "AI content pipeline with batch processing, scheduling, and multi-platform publishing",
-    tags: ["macOS", "Content", "Automation"],
-    build_hours: 40,
+      "Plant ideas, watch them grow. Gamified idea garden with 3D visualization and evolution engine",
+    tags: ["iOS", "3D", "Creativity"],
+    build_hours: 32,
     featured: true,
   },
   {
     id: "5",
-    name: "BWB POS",
-    builder_name: "Mo Diomande",
+    name: "BWB Suite",
+    builder_name: "Mo",
     description:
-      "Wine bar point-of-sale system with inventory management and sales analytics",
-    tags: ["iOS", "Commerce", "POS"],
-    build_hours: 28,
+      "Full POS + customer + kiosk apps for a wine bar. Voice ordering, inventory, analytics",
+    tags: ["iOS", "Commerce", "Voice"],
+    build_hours: 60,
     featured: true,
   },
   {
     id: "6",
-    name: "Sound Sigils",
-    builder_name: "Mo Diomande",
+    name: "Creative Director",
+    builder_name: "Mo",
     description:
-      "Audio generation from abstract concepts using AI-driven synthesis and composition",
-    tags: ["Audio", "AI Generation", "Creative"],
-    build_hours: 24,
+      "AI content pipeline with batch generation, Shopify publishing, and AI image generation",
+    tags: ["iOS", "Content", "Shopify"],
+    build_hours: 40,
     featured: true,
   },
   {
     id: "7",
-    name: "Serenity Soother",
-    builder_name: "Mo Diomande",
+    name: "LifeOS",
+    builder_name: "Mo",
     description:
-      "Therapeutic relaxation app with adaptive soundscapes and guided breathing",
-    tags: ["iOS", "Wellness", "Audio"],
-    build_hours: 20,
+      "Voice-first life management from Apple Watch. Health tracking, Siri shortcuts, streaks",
+    tags: ["watchOS", "Health", "Voice"],
+    build_hours: 28,
     featured: true,
   },
   {
     id: "8",
-    name: "Content Pipeline",
-    builder_name: "Mo Diomande",
+    name: "Cross-Script Bridge",
+    builder_name: "Mo",
     description:
-      "Automated content publishing system with AI writing, scheduling, and distribution",
-    tags: ["API", "Automation", "Publishing"],
+      "Real-time N'Ko ↔ Arabic ↔ Latin transliteration. PWA, browser extension, iOS keyboard",
+    tags: ["TypeScript", "Language", "PWA"],
+    build_hours: 44,
+    featured: true,
+  },
+  {
+    id: "9",
+    name: "Sound Sigils",
+    builder_name: "Mo",
+    description:
+      "Generate unique audio signatures from concepts. Pure Python, no dependencies, 112 tests",
+    tags: ["Python", "Audio", "Generative"],
+    build_hours: 24,
+    featured: false,
+  },
+  {
+    id: "10",
+    name: "Spatial Git",
+    builder_name: "Mo",
+    description:
+      "Navigate git history in 3D space. Branches as walkways, commits as glowing nodes",
+    tags: ["Three.js", "DevTools", "3D"],
+    build_hours: 16,
+    featured: false,
+  },
+  {
+    id: "11",
+    name: "Dream Weaver",
+    builder_name: "Mo",
+    description:
+      "Autonomous idea incubation via GitHub Actions. Ideas evolve through stages while you sleep",
+    tags: ["Python", "Automation", "AI"],
+    build_hours: 20,
+    featured: false,
+  },
+  {
+    id: "12",
+    name: "Compass",
+    builder_name: "Mo",
+    description:
+      "Agent stack dashboard — single pane of glass for 50+ repos, 136 skills, 23 pipelines",
+    tags: ["Next.js", "Dashboard", "D3"],
+    build_hours: 28,
+    featured: false,
+  },
+  {
+    id: "13",
+    name: "Content Pipeline",
+    builder_name: "Mo",
+    description:
+      "Automated TikTok script generation, scheduling, and cross-platform distribution",
+    tags: ["Automation", "Content", "Publishing"],
     build_hours: 18,
+    featured: false,
+  },
+  {
+    id: "14",
+    name: "LinkIt",
+    builder_name: "Mo",
+    description:
+      "Link-in-bio SaaS with glassmorphism design, deep analytics, and custom domains",
+    tags: ["Next.js", "SaaS", "Analytics"],
+    build_hours: 22,
+    featured: false,
+  },
+  {
+    id: "15",
+    name: "Aesthetic DNA",
+    builder_name: "Mo",
+    description:
+      "Extract the visual genome from any design — colors, type, texture, motion — and apply it to new creations",
+    tags: ["JavaScript", "Design", "Generative"],
+    build_hours: 14,
+    featured: false,
+  },
+  {
+    id: "16",
+    name: "Self-Healing Code",
+    builder_name: "Mo",
+    description:
+      "Code that detects, diagnoses, and fixes its own bugs. Immune memory and vulnerability scanning",
+    tags: ["Python", "DevTools", "AI"],
+    build_hours: 20,
     featured: false,
   },
 ];
@@ -100,22 +181,37 @@ const projects: Project[] = [
 const tagColors: Record<string, string> = {
   iOS: "#00d4ff",
   macOS: "#8b5cf6",
-  "Computer Vision": "#ef4444",
-  "Speech AI": "#f59e0b",
+  watchOS: "#10b981",
+  Vision: "#ef4444",
+  Voice: "#f59e0b",
   Security: "#ef4444",
   Accessibility: "#10b981",
-  Visualization: "#8b5cf6",
-  Productivity: "#10b981",
-  Content: "#f59e0b",
-  Automation: "#06b6d4",
+  "3D": "#8b5cf6",
+  Creativity: "#f59e0b",
   Commerce: "#f59e0b",
-  POS: "#ef4444",
+  Content: "#f59e0b",
+  Shopify: "#10b981",
+  Wearable: "#ec4899",
+  Gemini: "#06b6d4",
+  Health: "#10b981",
+  Language: "#8b5cf6",
+  TypeScript: "#06b6d4",
+  PWA: "#f59e0b",
+  Python: "#10b981",
   Audio: "#8b5cf6",
-  "AI Generation": "#00d4ff",
-  Creative: "#f59e0b",
-  Wellness: "#10b981",
-  API: "#06b6d4",
+  Generative: "#ec4899",
+  "Three.js": "#06b6d4",
+  DevTools: "#f59e0b",
+  Automation: "#06b6d4",
+  AI: "#00d4ff",
+  "Next.js": "#8b5cf6",
+  Dashboard: "#f59e0b",
+  D3: "#10b981",
   Publishing: "#10b981",
+  SaaS: "#00d4ff",
+  Analytics: "#06b6d4",
+  JavaScript: "#f59e0b",
+  Design: "#ec4899",
 };
 
 export function Gallery() {
@@ -130,11 +226,10 @@ export function Gallery() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Built With This Infrastructure
+            Built With the Mesh
           </h2>
           <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
-            Real products. Real code. All built using the same AI mesh you get
-            access to.
+            Real projects. Started as a message. Shipped as a product.
           </p>
         </motion.div>
 
@@ -145,12 +240,12 @@ export function Gallery() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
             >
               <div className="glass-card group h-full flex flex-col">
                 {/* Thumbnail placeholder */}
-                <div className="relative h-36 rounded-t-[1rem] overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] flex items-center justify-center border-b border-white/5">
-                  <span className="text-3xl font-bold text-white/10 font-[family-name:var(--font-mono)] group-hover:text-white/20 transition-colors">
+                <div className="relative h-32 rounded-t-[1rem] overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] flex items-center justify-center border-b border-white/5">
+                  <span className="text-2xl font-bold text-white/10 font-[family-name:var(--font-mono)] group-hover:text-white/20 transition-colors">
                     {project.name
                       .split(" ")
                       .map((w) => w[0])
@@ -169,7 +264,7 @@ export function Gallery() {
 
                 {/* Content */}
                 <div className="p-4 flex-1 flex flex-col">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1.5">
                     <h3 className="text-sm font-semibold text-white group-hover:text-[#00d4ff] transition-colors">
                       {project.name}
                     </h3>
@@ -198,6 +293,25 @@ export function Gallery() {
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <p className="text-sm text-[#6b6b80] mb-4">
+            16 projects and counting. Join and add yours to the wall.
+          </p>
+          <Link href="/projects">
+            <Button variant="secondary" size="sm">
+              See all projects
+              <ExternalLink className="w-3.5 h-3.5" />
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

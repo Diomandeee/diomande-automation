@@ -61,12 +61,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-[family-name:var(--font-body)] antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-[family-name:var(--font-body)] antialiased bg-[#020205]`}
       >
-        <div className="fixed inset-0 gradient-mesh-dark pointer-events-none" />
-        <div className="fixed inset-0 grid-pattern pointer-events-none" />
+        {/* Deep visual background stack */}
+        <div className="fixed inset-0 bg-[#020205] pointer-events-none" />
+        <div className="fixed inset-0 gradient-mesh-dark pointer-events-none opacity-80" />
+        <div className="fixed inset-0 grid-pattern pointer-events-none mix-blend-overlay" />
+
+        {/* Main Content */}
         <div className="relative z-10">{children}</div>
       </body>
     </html>

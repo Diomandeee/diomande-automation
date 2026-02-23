@@ -31,64 +31,69 @@ const steps = [
 
 export function Architecture() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00d4ff]/5 to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-24"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
             How It Works
           </h2>
-          <p className="text-lg text-[#b0b0c8] max-w-2xl mx-auto">
+          <p className="text-xl text-[#c0c0d8] max-w-2xl mx-auto font-medium">
             Three steps. No setup. No infrastructure to manage.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-12 relative">
+          {/* Connector line (Desktop) */}
+          <div className="hidden lg:block absolute top-1/2 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-[60px]" />
+
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.15 }}
-              className="glass-card p-8 text-center"
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              className="relative flex flex-col items-center text-center group"
             >
-              {/* Large icon circle */}
-              <div className="relative mx-auto mb-8 w-fit">
+              {/* Step indicator */}
+              <div className="mb-10 relative">
                 <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto border-2"
+                  className="w-24 h-24 rounded-[2rem] flex items-center justify-center border-2 transition-all duration-500 group-hover:scale-110"
                   style={{
-                    borderColor: `${step.color}40`,
-                    backgroundColor: `${step.color}10`,
-                    boxShadow: `0 0 30px ${step.color}15`,
+                    borderColor: `${step.color}50`,
+                    backgroundColor: `${step.color}15`,
+                    boxShadow: `0 0 40px ${step.color}20`,
                   }}
                 >
                   <step.icon
-                    className="w-9 h-9"
+                    className="w-10 h-10"
                     style={{ color: step.color }}
                   />
                 </div>
-                <span
-                  className="absolute -top-2 -right-2 text-sm font-bold font-[family-name:var(--font-mono)] px-2.5 py-0.5 rounded-full border"
+                <div
+                  className="absolute -top-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm border-2 shadow-xl"
                   style={{
+                    backgroundColor: "#05050a",
+                    borderColor: step.color,
                     color: step.color,
-                    borderColor: `${step.color}30`,
-                    backgroundColor: `${step.color}15`,
                   }}
                 >
                   {step.number}
-                </span>
+                </div>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-2xl font-black text-white mb-4">
                 {step.title}
               </h3>
-              <p className="text-sm text-[#b0b0c8] leading-relaxed max-w-xs mx-auto">
+              <p className="text-base text-[#c0c0d8] leading-relaxed max-w-xs font-medium">
                 {step.description}
               </p>
             </motion.div>

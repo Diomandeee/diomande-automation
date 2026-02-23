@@ -20,8 +20,7 @@ const projects: Project[] = [
     id: "1",
     name: "SecuriClaw",
     builder_name: "Mo",
-    description:
-      "AI security camera with face recognition, pose detection, and live streaming from a spare iPhone",
+    description: "AI security camera with face recognition, pose detection, and live streaming from a spare iPhone",
     tags: ["iOS", "Vision", "Security"],
     build_hours: 48,
     featured: true,
@@ -30,8 +29,7 @@ const projects: Project[] = [
     id: "2",
     name: "SpeakFlow",
     builder_name: "Mo",
-    description:
-      "Voice OS — talk and it types anywhere on your Mac. System-wide speech-to-text injection",
+    description: "Voice OS — talk and it types anywhere on your Mac. System-wide speech-to-text injection",
     tags: ["macOS", "Voice", "Accessibility"],
     build_hours: 36,
     featured: true,
@@ -40,8 +38,7 @@ const projects: Project[] = [
     id: "3",
     name: "VisionClaw",
     builder_name: "Mo",
-    description:
-      "AI assistant for Meta Ray-Ban smart glasses. Voice + vision conversation in real-time",
+    description: "AI assistant for Meta Ray-Ban smart glasses. Voice + vision conversation in real-time",
     tags: ["iOS", "Wearable", "Gemini"],
     build_hours: 32,
     featured: true,
@@ -50,8 +47,7 @@ const projects: Project[] = [
     id: "4",
     name: "Spore",
     builder_name: "Mo",
-    description:
-      "Plant ideas, watch them grow. Gamified idea garden with 3D visualization and evolution engine",
+    description: "Plant ideas, watch them grow. Gamified idea garden with 3D visualization and evolution engine",
     tags: ["iOS", "3D", "Creativity"],
     build_hours: 32,
     featured: true,
@@ -60,8 +56,7 @@ const projects: Project[] = [
     id: "5",
     name: "BWB Suite",
     builder_name: "Mo",
-    description:
-      "Full POS + customer + kiosk apps for a wine bar. Voice ordering, inventory, analytics",
+    description: "Full POS + customer + kiosk apps for a wine bar. Voice ordering, inventory, analytics",
     tags: ["iOS", "Commerce", "Voice"],
     build_hours: 60,
     featured: true,
@@ -70,8 +65,7 @@ const projects: Project[] = [
     id: "6",
     name: "Creative Director",
     builder_name: "Mo",
-    description:
-      "AI content pipeline with batch generation, Shopify publishing, and AI image generation",
+    description: "AI content pipeline with batch generation, Shopify publishing, and AI image generation",
     tags: ["iOS", "Content", "Shopify"],
     build_hours: 40,
     featured: true,
@@ -80,8 +74,7 @@ const projects: Project[] = [
     id: "7",
     name: "LifeOS",
     builder_name: "Mo",
-    description:
-      "Voice-first life management from Apple Watch. Health tracking, Siri shortcuts, streaks",
+    description: "Voice-first life management from Apple Watch. Health tracking, Siri shortcuts, streaks",
     tags: ["watchOS", "Health", "Voice"],
     build_hours: 28,
     featured: true,
@@ -90,8 +83,7 @@ const projects: Project[] = [
     id: "8",
     name: "Cross-Script Bridge",
     builder_name: "Mo",
-    description:
-      "Real-time N'Ko ↔ Arabic ↔ Latin transliteration. PWA, browser extension, iOS keyboard",
+    description: "Real-time N'Ko ↔ Arabic ↔ Latin transliteration. PWA, browser extension, iOS keyboard",
     tags: ["TypeScript", "Language", "PWA"],
     build_hours: 44,
     featured: true,
@@ -100,8 +92,7 @@ const projects: Project[] = [
     id: "9",
     name: "Sound Sigils",
     builder_name: "Mo",
-    description:
-      "Generate unique audio signatures from concepts. Pure Python, no dependencies, 112 tests",
+    description: "Generate unique audio signatures from concepts. Pure Python, no dependencies, 112 tests",
     tags: ["Python", "Audio", "Generative"],
     build_hours: 24,
     featured: false,
@@ -110,8 +101,7 @@ const projects: Project[] = [
     id: "10",
     name: "Spatial Git",
     builder_name: "Mo",
-    description:
-      "Navigate git history in 3D space. Branches as walkways, commits as glowing nodes",
+    description: "Navigate git history in 3D space. Branches as walkways, commits as glowing nodes",
     tags: ["Three.js", "DevTools", "3D"],
     build_hours: 16,
     featured: false,
@@ -120,8 +110,7 @@ const projects: Project[] = [
     id: "11",
     name: "Dream Weaver",
     builder_name: "Mo",
-    description:
-      "Autonomous idea incubation via GitHub Actions. Ideas evolve through stages while you sleep",
+    description: "Autonomous idea incubation via GitHub Actions. Ideas evolve through stages while you sleep",
     tags: ["Python", "Automation", "AI"],
     build_hours: 20,
     featured: false,
@@ -130,8 +119,7 @@ const projects: Project[] = [
     id: "12",
     name: "Compass",
     builder_name: "Mo",
-    description:
-      "Agent stack dashboard — single pane of glass for 50+ repos, 136 skills, 23 pipelines",
+    description: "Agent stack dashboard — single pane of glass for 50+ repos, 136 skills, 23 pipelines",
     tags: ["Next.js", "Dashboard", "D3"],
     build_hours: 28,
     featured: false,
@@ -140,8 +128,7 @@ const projects: Project[] = [
     id: "13",
     name: "Content Pipeline",
     builder_name: "Mo",
-    description:
-      "Automated TikTok script generation, scheduling, and cross-platform distribution",
+    description: "Automated TikTok script generation, scheduling, and cross-platform distribution",
     tags: ["Automation", "Content", "Publishing"],
     build_hours: 18,
     featured: false,
@@ -150,8 +137,7 @@ const projects: Project[] = [
     id: "14",
     name: "LinkIt",
     builder_name: "Mo",
-    description:
-      "Link-in-bio SaaS with glassmorphism design, deep analytics, and custom domains",
+    description: "Link-in-bio SaaS with glassmorphism design, deep analytics, and custom domains",
     tags: ["Next.js", "SaaS", "Analytics"],
     build_hours: 22,
     featured: false,
@@ -160,8 +146,7 @@ const projects: Project[] = [
     id: "15",
     name: "Aesthetic DNA",
     builder_name: "Mo",
-    description:
-      "Extract the visual genome from any design — colors, type, texture, motion — and apply it to new creations",
+    description: "Extract the visual genome from any design — colors, type, texture, motion — and apply it to new creations",
     tags: ["JavaScript", "Design", "Generative"],
     build_hours: 14,
     featured: false,
@@ -170,8 +155,7 @@ const projects: Project[] = [
     id: "16",
     name: "Self-Healing Code",
     builder_name: "Mo",
-    description:
-      "Code that detects, diagnoses, and fixes its own bugs. Immune memory and vulnerability scanning",
+    description: "Code that detects, diagnoses, and fixes its own bugs. Immune memory and vulnerability scanning",
     tags: ["Python", "DevTools", "AI"],
     build_hours: 20,
     featured: false,
@@ -216,82 +200,95 @@ const tagColors: Record<string, string> = {
 
 export function Gallery() {
   return (
-    <section className="py-24 relative" id="gallery">
+    <section className="py-32 relative" id="gallery">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
             Built With the Mesh
           </h2>
-          <p className="text-lg text-[#b0b0c8] max-w-2xl mx-auto">
+          <p className="text-xl text-[#c0c0d8] max-w-2xl mx-auto font-medium">
             Real projects. Started as a message. Shipped as a product.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-            >
-              <div className="glass-card group h-full flex flex-col">
-                {/* Thumbnail placeholder */}
-                <div className="relative h-36 rounded-t-[1rem] overflow-hidden bg-gradient-to-br from-[#00d4ff]/5 via-[#8b5cf6]/5 to-[#0e0e1e] flex items-center justify-center border-b border-white/8">
-                  <span className="text-3xl font-bold text-white/15 font-[family-name:var(--font-mono)] group-hover:text-[#00d4ff]/25 transition-colors">
-                    {project.name
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")}
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e1e]/80 to-transparent" />
-                  {project.build_hours && (
-                    <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md">
-                      <Clock className="w-3 h-3 text-[#00d4ff]" />
-                      <span className="text-[10px] text-[#b0b0c8] font-[family-name:var(--font-mono)]">
-                        {project.build_hours}h
-                      </span>
-                    </div>
-                  )}
-                </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {projects.map((project, i) => {
+            const primaryColor = tagColors[project.tags[0]] || "#00d4ff";
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+              >
+                <div className="glass-card group h-full flex flex-col overflow-hidden">
+                  {/* Vibrant Thumbnail */}
+                  <div
+                    className="relative h-40 flex items-center justify-center overflow-hidden"
+                    style={{
+                      background: `linear-gradient(135deg, ${primaryColor}20 0%, #0e0e1e 100%)`,
+                    }}
+                  >
+                    {/* Color glow element */}
+                    <div
+                      className="absolute w-32 h-32 blur-[40px] opacity-30 group-hover:opacity-50 transition-opacity"
+                      style={{ backgroundColor: primaryColor }}
+                    />
 
-                {/* Content */}
-                <div className="p-4 flex-1 flex flex-col">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <h3 className="text-sm font-semibold text-white group-hover:text-[#00d4ff] transition-colors">
-                      {project.name}
-                    </h3>
-                    <ExternalLink className="w-3.5 h-3.5 text-[#7a7a95] opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative z-10 text-4xl font-black text-white/20 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] font-[family-name:var(--font-mono)] group-hover:text-white/30 transition-colors">
+                      {project.name.split(" ").map((w) => w[0]).join("")}
+                    </span>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#05050a]/80 via-transparent to-transparent" />
+
+                    {project.build_hours && (
+                      <div className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10">
+                        <Clock className="w-3.5 h-3.5" style={{ color: primaryColor }} />
+                        <span className="text-[11px] text-white font-bold font-[family-name:var(--font-mono)]">
+                          {project.build_hours}h
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  <p className="text-xs text-[#9090a8] leading-relaxed mb-3 flex-1">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] px-2 py-0.5 rounded-full border font-medium"
-                        style={{
-                          color: tagColors[tag] || "#a0a0b8",
-                          borderColor: `${tagColors[tag] || "#a0a0b8"}30`,
-                          backgroundColor: `${tagColors[tag] || "#a0a0b8"}08`,
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+
+                  {/* Content */}
+                  <div className="p-5 flex-1 flex flex-col">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-base font-bold text-white group-hover:text-[#00d4ff] transition-colors">
+                        {project.name}
+                      </h3>
+                      <ExternalLink className="w-4 h-4 text-[#8888a8] opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <p className="text-sm text-[#c0c0d8] leading-relaxed mb-4 flex-1">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[10px] px-2.5 py-1 rounded-md border font-bold uppercase tracking-wider"
+                          style={{
+                            color: tagColors[tag] || "#a0a0b8",
+                            borderColor: `${tagColors[tag] || "#a0a0b8"}40`,
+                            backgroundColor: `${tagColors[tag] || "#a0a0b8"}15`,
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}
@@ -299,16 +296,16 @@ export function Gallery() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-16"
         >
-          <p className="text-sm text-[#7a7a95] mb-4">
+          <p className="text-sm text-[#8888a8] mb-6">
             16 projects and counting. Join and add yours to the wall.
           </p>
           <Link href="/projects">
-            <Button variant="secondary" size="sm">
-              See all projects
-              <ExternalLink className="w-3.5 h-3.5" />
+            <Button variant="secondary" size="lg" className="bg-[#00d4ff]/10 border-[#00d4ff]/20 text-[#00d4ff] hover:bg-[#00d4ff]/20">
+              Explore Full Directory
+              <ExternalLink className="w-4 h-4" />
             </Button>
           </Link>
         </motion.div>

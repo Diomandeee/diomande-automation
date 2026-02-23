@@ -201,7 +201,7 @@ const tagColors: Record<string, string> = {
 export function Gallery() {
   return (
     <section className="py-32 relative" id="gallery">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -217,8 +217,9 @@ export function Gallery() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projects.map((project, i) => {
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.03] p-6 lg:p-8 shadow-[0_4px_32px_rgba(0,0,0,0.3)]">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.filter(p => p.featured).map((project, i) => {
             const primaryColor = tagColors[project.tags[0]] || "#00d4ff";
             return (
               <motion.div
@@ -290,6 +291,7 @@ export function Gallery() {
             );
           })}
         </div>
+        </div>
 
         {/* Bottom CTA */}
         <motion.div
@@ -300,7 +302,7 @@ export function Gallery() {
           className="text-center mt-16"
         >
           <p className="text-sm text-[#8888a8] mb-6">
-            16 projects and counting. Join and add yours to the wall.
+            {projects.length} projects and counting. Join and add yours to the wall.
           </p>
           <Link href="/projects">
             <Button variant="secondary" size="lg" className="bg-[#00d4ff]/10 border-[#00d4ff]/20 text-[#00d4ff] hover:bg-[#00d4ff]/20">

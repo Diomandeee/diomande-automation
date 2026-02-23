@@ -59,13 +59,13 @@ const features = [
 export function FeatureShowcase() {
   return (
     <section className="py-32 relative section-alt overflow-hidden" id="community">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 text-[#8b5cf6] text-sm font-bold tracking-widest uppercase">
             Capabilities
@@ -79,38 +79,41 @@ export function FeatureShowcase() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <Card className="h-full p-8 group">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-6"
-                  style={{
-                    backgroundColor: `${feature.color}15`,
-                    border: `1px solid ${feature.color}30`,
-                    boxShadow: `0 0 20px ${feature.color}10`,
-                  }}
-                >
-                  <feature.icon
-                    className="w-7 h-7"
-                    style={{ color: feature.color }}
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-base text-[#c0c0d8] leading-relaxed">
-                  {feature.description}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
+        {/* Visible container box */}
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.03] p-6 lg:p-8 shadow-[0_4px_32px_rgba(0,0,0,0.3)]">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Card className="h-full p-8 group">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-6"
+                    style={{
+                      backgroundColor: `${feature.color}15`,
+                      border: `1px solid ${feature.color}30`,
+                      boxShadow: `0 0 20px ${feature.color}10`,
+                    }}
+                  >
+                    <feature.icon
+                      className="w-7 h-7"
+                      style={{ color: feature.color }}
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-base text-[#c0c0d8] leading-relaxed">
+                    {feature.description}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

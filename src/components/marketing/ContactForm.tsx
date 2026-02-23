@@ -38,7 +38,7 @@ export function ContactForm() {
   if (state === "success") {
     return (
       <section className="py-24" id="join">
-        <div className="max-w-2xl mx-auto px-6 text-center">
+        <div className="max-w-2xl mx-auto px-8 lg:px-16 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -68,7 +68,7 @@ export function ContactForm() {
 
   return (
     <section className="py-24" id="join">
-      <div className="max-w-xl mx-auto px-6">
+      <div className="max-w-xl mx-auto px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export function ContactForm() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Join the Community
           </h2>
-          <p className="text-lg text-[#b0b0c8]">
+          <p className="text-lg text-[#c0c0d8]">
             Get access to the mesh. Start building today.
           </p>
         </motion.div>

@@ -34,13 +34,13 @@ export function Architecture() {
     <section className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00d4ff]/5 to-transparent pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
             How It Works
@@ -50,6 +50,8 @@ export function Architecture() {
           </p>
         </motion.div>
 
+        {/* Visible container box */}
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.03] p-8 lg:p-12 shadow-[0_4px_32px_rgba(0,0,0,0.3)]">
         <div className="grid md:grid-cols-3 gap-12 relative">
           {/* Connector line (Desktop) */}
           <div className="hidden lg:block absolute top-1/2 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-[60px]" />
@@ -98,6 +100,7 @@ export function Architecture() {
               </p>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>

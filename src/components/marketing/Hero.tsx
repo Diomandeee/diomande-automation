@@ -15,7 +15,7 @@ export function Hero() {
         <div className="absolute top-[20%] right-0 w-[400px] h-[400px] bg-[#8b5cf6]/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
         {/* Left -- Copy */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}

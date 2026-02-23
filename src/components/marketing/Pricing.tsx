@@ -50,7 +50,7 @@ export function Pricing() {
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#00d4ff]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-8 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,6 +69,7 @@ export function Pricing() {
           </p>
         </motion.div>
 
+        <div className="rounded-2xl border border-white/[0.12] bg-white/[0.03] p-6 lg:p-8 shadow-[0_4px_32px_rgba(0,0,0,0.3)]">
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {tiers.map((tier, i) => (
             <motion.div
@@ -130,6 +131,7 @@ export function Pricing() {
               </ul>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>

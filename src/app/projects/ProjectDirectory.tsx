@@ -549,7 +549,7 @@ const projects: Project[] = [
 const maturityColors = {
   production: { bg: "bg-[#10b981]/10", text: "text-[#10b981]", label: "Production" },
   mvp: { bg: "bg-[#f59e0b]/10", text: "text-[#f59e0b]", label: "MVP" },
-  prototype: { bg: "bg-[#6b6b80]/10", text: "text-[#6b6b80]", label: "Prototype" },
+  prototype: { bg: "bg-[#6b6b80]/10", text: "text-[#7a7a95]", label: "Prototype" },
 };
 
 const tagColors: Record<string, string> = {
@@ -617,7 +617,7 @@ export function ProjectDirectory() {
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
           Project Directory
         </h1>
-        <p className="text-lg text-[#a0a0b8] max-w-2xl">
+        <p className="text-lg text-[#b0b0c8] max-w-2xl">
           {projects.length} projects built with the mesh. iOS apps, web
           platforms, AI infrastructure, creative tools, and more — all started
           from a message in Discord.
@@ -626,7 +626,7 @@ export function ProjectDirectory() {
 
       {/* Category filter */}
       <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2">
-        <Filter className="w-4 h-4 text-[#6b6b80] shrink-0" />
+        <Filter className="w-4 h-4 text-[#7a7a95] shrink-0" />
         {counts.map((cat) => (
           <button
             key={cat.name}
@@ -634,7 +634,7 @@ export function ProjectDirectory() {
             className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
               activeCategory === cat.name
                 ? "bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20"
-                : "bg-white/5 text-[#6b6b80] border border-white/5 hover:text-white hover:border-white/10"
+                : "bg-white/5 text-[#7a7a95] border border-white/5 hover:text-white hover:border-white/10"
             }`}
           >
             {cat.name}
@@ -661,7 +661,7 @@ export function ProjectDirectory() {
                   <h3 className="text-base font-semibold text-white">
                     {project.name}
                   </h3>
-                  <span className="text-[10px] text-[#6b6b80]">
+                  <span className="text-[10px] text-[#7a7a95]">
                     {project.category}
                   </span>
                 </div>
@@ -669,7 +669,7 @@ export function ProjectDirectory() {
                   {project.buildHours && (
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3 text-[#00d4ff]" />
-                      <span className="text-[10px] text-[#6b6b80] font-[family-name:var(--font-mono)]">
+                      <span className="text-[10px] text-[#7a7a95] font-[family-name:var(--font-mono)]">
                         {project.buildHours}h
                       </span>
                     </div>
@@ -683,7 +683,7 @@ export function ProjectDirectory() {
               </div>
 
               {/* Description */}
-              <p className="text-xs text-[#a0a0b8] leading-relaxed mb-4 flex-1">
+              <p className="text-xs text-[#b0b0c8] leading-relaxed mb-4 flex-1">
                 {project.description}
               </p>
 
@@ -724,7 +724,7 @@ export function ProjectDirectory() {
         transition={{ delay: 0.5 }}
         className="mt-16 text-center"
       >
-        <div className="flex items-center justify-center gap-8 text-sm text-[#6b6b80]">
+        <div className="flex items-center justify-center gap-8 text-sm text-[#7a7a95]">
           <div>
             <span className="text-2xl font-bold text-white block">
               {projects.filter((p) => p.maturity === "production").length}

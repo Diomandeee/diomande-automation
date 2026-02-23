@@ -48,7 +48,7 @@ export function ContactForm() {
             <h3 className="text-2xl font-bold text-white mb-3">
               You&apos;re In
             </h3>
-            <p className="text-[#a0a0b8] mb-6">
+            <p className="text-[#b0b0c8] mb-6">
               Welcome to the community. Join the Discord to start building.
             </p>
             <a
@@ -79,7 +79,7 @@ export function ContactForm() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Join the Community
           </h2>
-          <p className="text-lg text-[#a0a0b8]">
+          <p className="text-lg text-[#b0b0c8]">
             Get access to the mesh. Start building today.
           </p>
         </motion.div>

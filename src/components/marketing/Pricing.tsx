@@ -61,7 +61,7 @@ export function Pricing() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Pick Your Level
           </h2>
-          <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#b0b0c8] max-w-2xl mx-auto">
             Start free. Go pro when you need more power.
           </p>
         </motion.div>
@@ -76,8 +76,8 @@ export function Pricing() {
               transition={{ duration: 0.4, delay: i * 0.15 }}
               className={`rounded-2xl p-8 border ${
                 tier.highlighted
-                  ? "border-[#00d4ff]/30 bg-[rgba(0,212,255,0.06)] shadow-[0_0_60px_rgba(0,212,255,0.1)]"
-                  : "border-white/10 bg-[rgba(26,26,40,0.7)]"
+                  ? "border-[#00d4ff]/30 bg-[rgba(0,212,255,0.06)] shadow-[0_0_60px_rgba(0,212,255,0.1),0_4px_24px_rgba(0,0,0,0.3)]"
+                  : "border-white/12 bg-[rgba(14,14,30,0.95)] shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]"
               }`}
             >
               {tier.highlighted && (
@@ -87,7 +87,7 @@ export function Pricing() {
               )}
 
               <h3 className="text-2xl font-bold text-white">{tier.name}</h3>
-              <p className="text-sm text-[#a0a0b8] mt-2 mb-6">
+              <p className="text-sm text-[#b0b0c8] mt-2 mb-6">
                 {tier.description}
               </p>
 
@@ -96,7 +96,7 @@ export function Pricing() {
                   <span className="text-4xl font-bold text-white">
                     {tier.price}
                   </span>
-                  <span className="text-[#6b6b80]">{tier.period}</span>
+                  <span className="text-[#7a7a95]">{tier.period}</span>
                 </div>
               </div>
 
@@ -116,7 +116,7 @@ export function Pricing() {
                     className="flex items-start gap-3 text-sm"
                   >
                     <Check className="w-4 h-4 text-[#10b981] mt-0.5 shrink-0" />
-                    <span className="text-[#a0a0b8]">{feature}</span>
+                    <span className="text-[#b0b0c8]">{feature}</span>
                   </li>
                 ))}
               </ul>

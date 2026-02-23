@@ -58,7 +58,7 @@ const features = [
 
 export function FeatureShowcase() {
   return (
-    <section className="py-24 relative" id="community">
+    <section className="py-24 relative section-alt" id="community">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,7 +70,7 @@ export function FeatureShowcase() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             What You Get
           </h2>
-          <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#b0b0c8] max-w-2xl mx-auto">
             Production AI infrastructure built from thousands of hours of
             real-world autonomous operation. Not a wrapper around an API.
           </p>
@@ -87,8 +87,11 @@ export function FeatureShowcase() {
             >
               <Card className="h-full">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${feature.color}15` }}
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                  style={{
+                    backgroundColor: `${feature.color}12`,
+                    border: `1px solid ${feature.color}25`,
+                  }}
                 >
                   <feature.icon
                     className="w-5 h-5"
@@ -98,7 +101,7 @@ export function FeatureShowcase() {
                 <h3 className="text-lg font-semibold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-[#a0a0b8] leading-relaxed">
+                <p className="text-sm text-[#b0b0c8] leading-relaxed">
                   {feature.description}
                 </p>
               </Card>

@@ -228,7 +228,7 @@ export function Gallery() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Built With the Mesh
           </h2>
-          <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
+          <p className="text-lg text-[#b0b0c8] max-w-2xl mx-auto">
             Real projects. Started as a message. Shipped as a product.
           </p>
         </motion.div>
@@ -244,18 +244,18 @@ export function Gallery() {
             >
               <div className="glass-card group h-full flex flex-col">
                 {/* Thumbnail placeholder */}
-                <div className="relative h-32 rounded-t-[1rem] overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] flex items-center justify-center border-b border-white/5">
-                  <span className="text-2xl font-bold text-white/10 font-[family-name:var(--font-mono)] group-hover:text-white/20 transition-colors">
+                <div className="relative h-36 rounded-t-[1rem] overflow-hidden bg-gradient-to-br from-[#00d4ff]/5 via-[#8b5cf6]/5 to-[#0e0e1e] flex items-center justify-center border-b border-white/8">
+                  <span className="text-3xl font-bold text-white/15 font-[family-name:var(--font-mono)] group-hover:text-[#00d4ff]/25 transition-colors">
                     {project.name
                       .split(" ")
                       .map((w) => w[0])
                       .join("")}
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e1e]/80 to-transparent" />
                   {project.build_hours && (
                     <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-md">
                       <Clock className="w-3 h-3 text-[#00d4ff]" />
-                      <span className="text-[10px] text-[#a0a0b8] font-[family-name:var(--font-mono)]">
+                      <span className="text-[10px] text-[#b0b0c8] font-[family-name:var(--font-mono)]">
                         {project.build_hours}h
                       </span>
                     </div>
@@ -268,9 +268,9 @@ export function Gallery() {
                     <h3 className="text-sm font-semibold text-white group-hover:text-[#00d4ff] transition-colors">
                       {project.name}
                     </h3>
-                    <ExternalLink className="w-3.5 h-3.5 text-[#6b6b80] opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-3.5 h-3.5 text-[#7a7a95] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <p className="text-xs text-[#6b6b80] leading-relaxed mb-3 flex-1">
+                  <p className="text-xs text-[#9090a8] leading-relaxed mb-3 flex-1">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -302,7 +302,7 @@ export function Gallery() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <p className="text-sm text-[#6b6b80] mb-4">
+          <p className="text-sm text-[#7a7a95] mb-4">
             16 projects and counting. Join and add yours to the wall.
           </p>
           <Link href="/projects">

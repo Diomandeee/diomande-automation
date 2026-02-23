@@ -35,7 +35,7 @@ export function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-[#a0a0b8] hover:text-white transition-colors"
+              className="text-sm text-[#b0b0c8] hover:text-white transition-colors"
             >
               {link.label}
             </Link>
@@ -82,7 +82,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block text-[#a0a0b8] hover:text-white py-2 transition-colors"
+                  className="block text-[#b0b0c8] hover:text-white py-2 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

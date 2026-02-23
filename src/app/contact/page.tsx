@@ -4,9 +4,9 @@ import { Footer } from "@/components/marketing/Footer";
 import { ContactForm } from "@/components/marketing/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Join",
   description:
-    "Book a free consultation to discuss deploying AI task automation for your team.",
+    "Join the Diomande community. Get access to production AI infrastructure and start building.",
 };
 
 export default function ContactPage() {

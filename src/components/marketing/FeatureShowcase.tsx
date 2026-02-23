@@ -2,63 +2,63 @@
 
 import { motion } from "framer-motion";
 import {
-  GitBranch,
-  Network,
   Brain,
-  Layers,
+  Hammer,
   MessageSquare,
+  GitBranch,
+  Clock,
   Database,
 } from "lucide-react";
 import { Card } from "@/components/shared/Card";
 
 const features = [
   {
-    icon: GitBranch,
-    title: "Multi-Agent Task Decomposition",
+    icon: Brain,
+    title: "Multi-Agent AI",
     description:
-      "Complex tasks are automatically split into parallel subtasks, executed across agents, and auto-synthesized into a coherent result.",
+      "Claude, Gemini, Codex. The system picks the best model for your task automatically. No configuration needed.",
     color: "#00d4ff",
   },
   {
-    icon: Network,
-    title: "Distributed Mesh Execution",
+    icon: Hammer,
+    title: "Build Anything",
     description:
-      "Run across multiple machines with automatic load balancing, failover, and device health monitoring across your infrastructure.",
+      "Apps, APIs, bots, automations, content pipelines. If you can describe it, the mesh builds it.",
     color: "#8b5cf6",
   },
   {
-    icon: Brain,
-    title: "Intelligent Model Routing",
+    icon: MessageSquare,
+    title: "Discord-Native",
     description:
-      "Auto-selects Claude, Gemini, or Codex based on task classification. The right model for the right job, every time.",
+      "Just type in Discord. No CLI, no IDE, no setup. Your channel is your workspace.",
     color: "#10b981",
   },
   {
-    icon: Layers,
-    title: "Thread-Per-Task Architecture",
+    icon: GitBranch,
+    title: "Parallel Execution",
     description:
-      "Every task gets its own isolated thread with full lifecycle management — from ACTIVE through IDLE to ARCHIVED.",
+      "Complex tasks decompose into subtasks, running across multiple machines simultaneously.",
     color: "#f59e0b",
   },
   {
-    icon: MessageSquare,
-    title: "Multi-Gateway Access",
+    icon: Clock,
+    title: "Always On",
     description:
-      "Discord, Telegram, SMS, REST API — meet your team where they already work. One bot, every interface.",
+      "24/7 mesh network. Queue tasks at 3am, get results by morning. The infrastructure never sleeps.",
     color: "#ef4444",
   },
   {
     icon: Database,
-    title: "Knowledge-Aware Execution",
+    title: "Knowledge System",
     description:
-      "112K+ turn context, semantic search, and a knowledge graph that grows with every interaction. Your AI remembers.",
+      "112K+ context turns. The AI remembers your project, your patterns, your preferences.",
     color: "#06b6d4",
   },
 ];
 
 export function FeatureShowcase() {
   return (
-    <section className="py-24 relative">
+    <section className="py-24 relative" id="community">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,11 +68,11 @@ export function FeatureShowcase() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Production-Grade AI Infrastructure
+            What You Get
           </h2>
           <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
-            Not a wrapper around an API. A distributed task execution platform
-            built from thousands of hours of real-world autonomous operation.
+            Production AI infrastructure built from thousands of hours of
+            real-world autonomous operation. Not a wrapper around an API.
           </p>
         </motion.div>
 

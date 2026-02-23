@@ -12,23 +12,23 @@ export async function POST(request: NextRequest) {
     }
 
     const { tier } = await request.json();
-    const priceConfig = PRICE_IDS[tier as keyof typeof PRICE_IDS];
+    const priceConfig = PRICE_IDS[tier];
 
-    if (!priceConfig || !priceConfig.monthly) {
+    if (!priceConfig?.monthly) {
       return NextResponse.json(
         { error: "Invalid tier or custom pricing required" },
         { status: 400 }
       );
     }
 
-    const lineItems = [];
+    const lineItems: { price: string; quantity: number }[] = [];
     if (priceConfig.setup) {
       lineItems.push({ price: priceConfig.setup, quantity: 1 });
     }
     lineItems.push({ price: priceConfig.monthly, quantity: 1 });
 
     const session = await getStripe().checkout.sessions.create({
-      customer_email: user.email,
+      customer_email: user.email!,
       line_items: lineItems,
       mode: "subscription",
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/portal/billing?success=true`,

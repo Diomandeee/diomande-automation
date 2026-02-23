@@ -7,11 +7,10 @@ import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/shared/Button";
 
 const navLinks = [
-  { href: "/features", label: "Features" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/use-cases", label: "Use Cases" },
+  { href: "#gallery", label: "Gallery" },
+  { href: "#community", label: "What You Get" },
+  { href: "#membership", label: "Membership" },
   { href: "/docs", label: "Docs" },
-  { href: "/about", label: "About" },
 ];
 
 export function Navigation() {
@@ -50,8 +49,8 @@ export function Navigation() {
               Sign In
             </Button>
           </Link>
-          <Link href="/contact">
-            <Button size="sm">Book a Call</Button>
+          <Link href="#join">
+            <Button size="sm">Join Free</Button>
           </Link>
         </div>
 
@@ -61,7 +60,11 @@ export function Navigation() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
         </button>
       </div>
 
@@ -91,9 +94,13 @@ export function Navigation() {
                     Sign In
                   </Button>
                 </Link>
-                <Link href="/contact" className="block">
-                  <Button size="sm" className="w-full">
-                    Book a Call
+                <Link href="#join" className="block">
+                  <Button
+                    size="sm"
+                    className="w-full"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Join Free
                   </Button>
                 </Link>
               </div>

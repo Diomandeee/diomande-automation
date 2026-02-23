@@ -2,20 +2,20 @@ import Link from "next/link";
 import { Zap } from "lucide-react";
 
 const footerLinks = {
-  Product: [
-    { href: "/features", label: "Features" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/use-cases", label: "Use Cases" },
+  Platform: [
+    { href: "#gallery", label: "Gallery" },
+    { href: "#membership", label: "Membership" },
+    { href: "#community", label: "What You Get" },
     { href: "/docs", label: "Documentation" },
   ],
-  Company: [
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+  Community: [
+    { href: "https://discord.gg/diomande", label: "Discord", external: true },
+    { href: "#join", label: "Join Free" },
+    { href: "#gallery", label: "Project Showcase" },
   ],
   Resources: [
     { href: "/docs/getting-started", label: "Getting Started" },
     { href: "/docs/architecture", label: "Architecture" },
-    { href: "/docs/integrations/api", label: "API Reference" },
     { href: "/docs/integrations/discord", label: "Discord Setup" },
   ],
 };
@@ -34,8 +34,8 @@ export function Footer() {
               <span className="font-semibold text-white">Diomande</span>
             </Link>
             <p className="text-sm text-[#6b6b80] leading-relaxed">
-              AI-powered task automation infrastructure. Distributed execution
-              for your team.
+              Production AI infrastructure. Join the community and build
+              anything you want.
             </p>
           </div>
 
@@ -48,12 +48,23 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-[#6b6b80] hover:text-[#a0a0b8] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {"external" in link && link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-[#6b6b80] hover:text-[#a0a0b8] transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-[#6b6b80] hover:text-[#a0a0b8] transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

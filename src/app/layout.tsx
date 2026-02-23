@@ -17,35 +17,36 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://diomandeautomation.com"),
   title: {
-    default: "Diomande Automation — AI-Powered Task Automation for Your Team",
-    template: "%s | Diomande Automation",
+    default: "Diomande — Production AI Infrastructure",
+    template: "%s | Diomande",
   },
   description:
-    "Distributed AI task execution with multi-agent decomposition, intelligent model routing, and mesh device orchestration. Deployed for your infrastructure.",
+    "Build anything with production AI infrastructure. Join the community or partner with Mo for enterprise AI consulting.",
   keywords: [
-    "AI automation",
-    "task automation",
+    "AI infrastructure",
+    "AI community",
     "multi-agent",
+    "AI consulting",
     "distributed execution",
     "mesh network",
     "Claude",
-    "AI infrastructure",
-    "Diomande Automation",
+    "Diomande",
+    "build with AI",
   ],
   authors: [{ name: "Mohamed Diomande" }],
   openGraph: {
-    title: "Diomande Automation — AI-Powered Task Automation for Your Team",
+    title: "Diomande — Production AI Infrastructure",
     description:
-      "Distributed AI task execution with multi-agent decomposition, intelligent model routing, and mesh device orchestration.",
+      "Build anything with production AI infrastructure. Join the community or partner with Mo for enterprise AI consulting.",
     images: ["/og-image.png"],
     type: "website",
-    siteName: "Diomande Automation",
+    siteName: "Diomande",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Diomande Automation — AI-Powered Task Automation",
+    title: "Diomande — Production AI Infrastructure",
     description:
-      "Distributed execution. Multi-agent decomposition. Deployed for your infrastructure.",
+      "Build anything with production AI. Community access + enterprise consulting.",
     images: ["/og-image.png"],
   },
   robots: {

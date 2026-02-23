@@ -7,7 +7,7 @@ import { PricingFAQ } from "./PricingFAQ";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple, transparent pricing for AI task automation. Starter, Professional, and Enterprise tiers.",
+    "Free community access or Pro membership. Build anything with the mesh.",
 };
 
 export default function PricingPage() {
@@ -18,11 +18,11 @@ export default function PricingPage() {
         <section className="py-24">
           <div className="max-w-7xl mx-auto px-6 text-center">
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Pricing That Scales With You
+              Membership
             </h1>
             <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
-              One-time setup to deploy your infrastructure, plus a monthly
-              service fee for ongoing management and support.
+              Start free. Go Pro when you need unlimited builds and priority
+              access to the mesh.
             </p>
           </div>
         </section>

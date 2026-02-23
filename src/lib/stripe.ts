@@ -9,17 +9,15 @@ export function getStripe(): Stripe {
   return _stripe;
 }
 
-export const PRICE_IDS = {
-  starter: {
-    setup: process.env.STRIPE_STARTER_SETUP_PRICE_ID,
-    monthly: process.env.STRIPE_STARTER_MONTHLY_PRICE_ID,
-  },
-  professional: {
-    setup: process.env.STRIPE_PRO_SETUP_PRICE_ID,
-    monthly: process.env.STRIPE_PRO_MONTHLY_PRICE_ID,
+export const PRICE_IDS: Record<
+  string,
+  { setup?: string | null; monthly: string | null }
+> = {
+  community_pro: {
+    monthly: process.env.STRIPE_COMMUNITY_PRO_MONTHLY_PRICE_ID ?? null,
   },
   enterprise: {
-    setup: null, // Custom pricing
+    setup: null,
     monthly: null,
   },
-} as const;
+};

@@ -1,14 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { UserPlus, MessageSquareText, Rocket } from "lucide-react";
 
 const steps = [
-  { label: "Your Team", sub: "Discord / API / SMS / Telegram", color: "#00d4ff" },
-  { label: "Gateway", sub: "Multi-channel ingestion", color: "#8b5cf6" },
-  { label: "Task Queue", sub: "Priority & classification", color: "#f59e0b" },
-  { label: "Mesh Devices", sub: "Distributed execution", color: "#10b981" },
-  { label: "AI Models", sub: "Claude / Gemini / Codex", color: "#ef4444" },
-  { label: "Result", sub: "Synthesized & delivered", color: "#06b6d4" },
+  {
+    icon: UserPlus,
+    number: "01",
+    title: "Join",
+    description: "Get a Discord invite. Pick your channel. You're in.",
+    color: "#00d4ff",
+  },
+  {
+    icon: MessageSquareText,
+    number: "02",
+    title: "Build",
+    description:
+      "Describe what you want in plain language. The mesh handles the rest — model routing, task decomposition, execution.",
+    color: "#8b5cf6",
+  },
+  {
+    icon: Rocket,
+    number: "03",
+    title: "Ship",
+    description:
+      "Get production code, deployed apps, or whatever you asked for. Review, iterate, ship.",
+    color: "#10b981",
+  },
 ];
 
 export function Architecture() {
@@ -20,61 +38,58 @@ export function Architecture() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             How It Works
           </h2>
           <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
-            From message to result — a production pipeline that handles
-            everything automatically.
+            Three steps. No setup. No infrastructure to manage.
           </p>
         </motion.div>
 
-        {/* Flow diagram */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {steps.map((step, i) => (
             <motion.div
-              key={step.label}
+              key={step.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex items-center gap-4 lg:gap-0"
+              transition={{ duration: 0.4, delay: i * 0.15 }}
+              className="text-center"
             >
-              {/* Node */}
-              <div className="flex flex-col items-center text-center w-36">
+              {/* Large icon circle */}
+              <div className="relative mx-auto mb-8 w-fit">
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3 border"
+                  className="w-24 h-24 rounded-full flex items-center justify-center mx-auto border-2"
                   style={{
-                    backgroundColor: `${step.color}10`,
-                    borderColor: `${step.color}30`,
+                    borderColor: `${step.color}40`,
+                    backgroundColor: `${step.color}08`,
                   }}
                 >
-                  <span
-                    className="text-lg font-bold font-[family-name:var(--font-mono)]"
+                  <step.icon
+                    className="w-10 h-10"
                     style={{ color: step.color }}
-                  >
-                    {i + 1}
-                  </span>
+                  />
                 </div>
-                <h4 className="text-sm font-semibold text-white">
-                  {step.label}
-                </h4>
-                <p className="text-xs text-[#6b6b80] mt-1">{step.sub}</p>
+                <span
+                  className="absolute -top-2 -right-2 text-sm font-bold font-[family-name:var(--font-mono)] px-2.5 py-0.5 rounded-full border"
+                  style={{
+                    color: step.color,
+                    borderColor: `${step.color}30`,
+                    backgroundColor: `${step.color}15`,
+                  }}
+                >
+                  {step.number}
+                </span>
               </div>
 
-              {/* Arrow */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block w-12 h-px bg-gradient-to-r from-white/20 to-white/5 relative">
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-white/20 border-y-[4px] border-y-transparent" />
-                </div>
-              )}
-              {i < steps.length - 1 && (
-                <div className="lg:hidden w-px h-8 bg-gradient-to-b from-white/20 to-white/5 relative">
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0 border-t-[6px] border-t-white/20 border-x-[4px] border-x-transparent" />
-                </div>
-              )}
+              <h3 className="text-xl font-bold text-white mb-3">
+                {step.title}
+              </h3>
+              <p className="text-sm text-[#a0a0b8] leading-relaxed max-w-xs mx-auto">
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </div>

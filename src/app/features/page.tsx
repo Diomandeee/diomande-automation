@@ -19,7 +19,7 @@ export default function FeaturesPage() {
         <section className="py-24">
           <div className="max-w-7xl mx-auto px-6 text-center">
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Everything Your Team Needs
+              What You Get
             </h1>
             <p className="text-lg text-[#a0a0b8] max-w-2xl mx-auto">
               A production-grade distributed AI task execution platform, built

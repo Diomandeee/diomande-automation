@@ -11,6 +11,7 @@ import { ProjectFeatures } from "@/components/projects/ProjectFeatures";
 import { ProjectTechStack } from "@/components/projects/ProjectTechStack";
 import { TestFlightCTA } from "@/components/projects/TestFlightCTA";
 import { RelatedProjects } from "@/components/projects/RelatedProjects";
+import { ProjectViewTracker } from "@/components/projects/ProjectViewTracker";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -46,6 +47,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <ProjectViewTracker slug={project.slug} />
       <Navigation />
       <main className="pt-24 pb-16">
         <div className="max-w-6xl mx-auto px-6 lg:px-16">

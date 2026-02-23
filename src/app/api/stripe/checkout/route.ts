@@ -22,9 +22,6 @@ export async function POST(request: NextRequest) {
     }
 
     const lineItems: { price: string; quantity: number }[] = [];
-    if (priceConfig.setup) {
-      lineItems.push({ price: priceConfig.setup, quantity: 1 });
-    }
     lineItems.push({ price: priceConfig.monthly, quantity: 1 });
 
     const session = await getStripe().checkout.sessions.create({

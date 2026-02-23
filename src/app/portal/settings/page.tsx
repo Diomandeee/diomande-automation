@@ -1,19 +1,71 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card } from "@/components/shared/Card";
 import { Input } from "@/components/shared/Input";
 import { Button } from "@/components/shared/Button";
 import { Badge } from "@/components/shared/Badge";
-import { Key, Copy, Check } from "lucide-react";
+import { Key, Copy, Check, RefreshCw } from "lucide-react";
+
+interface NotificationPrefs {
+  task_completion: boolean;
+  usage_warnings: boolean;
+  system_updates: boolean;
+}
+
+const prefLabels: Record<keyof NotificationPrefs, string> = {
+  task_completion: "Task completion notifications",
+  usage_warnings: "Usage limit warnings",
+  system_updates: "System status updates",
+};
 
 export default function SettingsPage() {
   const [copied, setCopied] = useState(false);
+  const [apiKey, setApiKey] = useState<string | null>(null);
+  const [generating, setGenerating] = useState(false);
+  const [prefs, setPrefs] = useState<NotificationPrefs>({
+    task_completion: true,
+    usage_warnings: true,
+    system_updates: true,
+  });
+
+  const loadSettings = useCallback(async () => {
+    const [keyRes, prefsRes] = await Promise.all([
+      fetch("/api/portal/api-key"),
+      fetch("/api/portal/settings"),
+    ]);
+    const keyData = await keyRes.json();
+    const prefsData = await prefsRes.json();
+    if (keyData.api_key) setApiKey(keyData.api_key);
+    if (prefsData.notification_preferences) setPrefs(prefsData.notification_preferences);
+  }, []);
+
+  useEffect(() => {
+    loadSettings();
+  }, [loadSettings]);
 
   function handleCopy(text: string) {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  async function handleGenerateKey() {
+    setGenerating(true);
+    const res = await fetch("/api/portal/api-key", { method: "POST" });
+    const data = await res.json();
+    if (data.api_key) setApiKey(data.api_key);
+    setGenerating(false);
+  }
+
+  async function handlePrefChange(key: keyof NotificationPrefs, value: boolean) {
+    const updated = { ...prefs, [key]: value };
+    setPrefs(updated);
+    await fetch("/api/portal/settings", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ notification_preferences: updated }),
+    });
   }
 
   return (
@@ -56,24 +108,35 @@ export default function SettingsPage() {
           <div className="flex items-center gap-3">
             <Input
               id="api_key"
-              value="da_sk_••••••••••••••••••••"
+              value={apiKey || "No API key generated"}
               disabled
               className="flex-1 font-[family-name:var(--font-mono)]"
             />
+            {apiKey && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => handleCopy(apiKey)}
+              >
+                {copied ? (
+                  <Check className="w-4 h-4 text-[#10b981]" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+              </Button>
+            )}
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => handleCopy("da_sk_example_key")}
+              onClick={handleGenerateKey}
+              loading={generating}
             >
-              {copied ? (
-                <Check className="w-4 h-4 text-[#10b981]" />
-              ) : (
-                <Copy className="w-4 h-4" />
-              )}
+              <RefreshCw className="w-4 h-4" />
             </Button>
           </div>
           <p className="text-xs text-[#6b6b80]">
             Use this API key to submit tasks programmatically. Keep it secret.
+            Generating a new key will invalidate the previous one.
           </p>
         </div>
       </Card>
@@ -84,21 +147,18 @@ export default function SettingsPage() {
           Notifications
         </h3>
         <div className="space-y-3 max-w-md">
-          {[
-            "Task completion notifications",
-            "Usage limit warnings",
-            "System status updates",
-          ].map((pref) => (
+          {(Object.keys(prefLabels) as (keyof NotificationPrefs)[]).map((key) => (
             <label
-              key={pref}
+              key={key}
               className="flex items-center gap-3 text-sm text-[#a0a0b8] cursor-pointer"
             >
               <input
                 type="checkbox"
-                defaultChecked
+                checked={prefs[key]}
+                onChange={(e) => handlePrefChange(key, e.target.checked)}
                 className="w-4 h-4 rounded bg-white/5 border-white/10 text-[#00d4ff] focus:ring-[#00d4ff]/20"
               />
-              {pref}
+              {prefLabels[key]}
             </label>
           ))}
         </div>

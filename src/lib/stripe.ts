@@ -11,13 +11,15 @@ export function getStripe(): Stripe {
 
 export const PRICE_IDS: Record<
   string,
-  { setup?: string | null; monthly: string | null }
+  { monthly: string | null }
 > = {
-  community_pro: {
-    monthly: process.env.STRIPE_COMMUNITY_PRO_MONTHLY_PRICE_ID ?? null,
+  free: {
+    monthly: null,
+  },
+  pro: {
+    monthly: process.env.STRIPE_PRO_MONTHLY_PRICE_ID ?? null,
   },
   enterprise: {
-    setup: null,
     monthly: null,
   },
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Check, Circle, ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/shared/Button";
@@ -57,8 +57,44 @@ interface OnboardingWizardProps {
 }
 
 export function OnboardingWizard({ initialSteps }: OnboardingWizardProps) {
-  const [steps] = useState<Step[]>(initialSteps || defaultSteps);
+  const [steps, setSteps] = useState<Step[]>(initialSteps || defaultSteps);
   const [currentStep, setCurrentStep] = useState(0);
+
+  const loadSteps = useCallback(async () => {
+    try {
+      const res = await fetch("/api/portal/onboarding");
+      const data = await res.json();
+      if (data.steps && data.steps.length > 0) {
+        const merged = defaultSteps.map((def) => {
+          const saved = data.steps.find(
+            (s: { step_id: string; status: string }) => s.step_id === def.id
+          );
+          return saved ? { ...def, status: saved.status } : def;
+        });
+        setSteps(merged);
+        // Jump to first incomplete step
+        const firstIncomplete = merged.findIndex((s) => s.status !== "completed");
+        if (firstIncomplete >= 0) setCurrentStep(firstIncomplete);
+      }
+    } catch {
+      // Use defaults
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!initialSteps) loadSteps();
+  }, [initialSteps, loadSteps]);
+
+  async function updateStepStatus(stepId: string, status: string) {
+    setSteps((prev) =>
+      prev.map((s) => (s.id === stepId ? { ...s, status: status as Step["status"] } : s))
+    );
+    fetch("/api/portal/onboarding", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ step_id: stepId, status }),
+    });
+  }
 
   const current = steps[currentStep];
 
@@ -115,7 +151,7 @@ export function OnboardingWizard({ initialSteps }: OnboardingWizardProps) {
             </div>
           </div>
 
-          {/* Step content — placeholder for actual setup forms */}
+          {/* Step content */}
           <div className="glass-card p-6 mb-6 bg-white/[0.02]">
             <p className="text-sm text-[#6b6b80]">
               Setup instructions and configuration form for this step will
@@ -133,15 +169,26 @@ export function OnboardingWizard({ initialSteps }: OnboardingWizardProps) {
               <ArrowLeft className="w-4 h-4" />
               Previous
             </Button>
-            <Button
-              onClick={() =>
-                setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
-              }
-              disabled={currentStep === steps.length - 1}
-            >
-              {currentStep === steps.length - 1 ? "Complete" : "Next Step"}
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+            <div className="flex gap-2">
+              {current.status !== "completed" && (
+                <Button
+                  variant="secondary"
+                  onClick={() => updateStepStatus(current.id, "completed")}
+                >
+                  <Check className="w-4 h-4" />
+                  Mark Complete
+                </Button>
+              )}
+              <Button
+                onClick={() =>
+                  setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+                }
+                disabled={currentStep === steps.length - 1}
+              >
+                {currentStep === steps.length - 1 ? "Complete" : "Next Step"}
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </motion.div>
       </Card>

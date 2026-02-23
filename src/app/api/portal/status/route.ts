@@ -34,6 +34,27 @@ export async function GET() {
     .eq("client_id", client.id)
     .gte("created_at", today.toISOString());
 
+  // Avg duration + success rate
+  const { data: taskMetrics } = await supabase
+    .from("clawbot_client_tasks")
+    .select("status, duration_ms")
+    .eq("client_id", client.id);
+
+  let avgDuration = 0;
+  let successRate = 100;
+  if (taskMetrics && taskMetrics.length > 0) {
+    const durations = taskMetrics
+      .map((t) => t.duration_ms)
+      .filter((d): d is number => d != null && d > 0);
+    avgDuration = durations.length > 0
+      ? Math.round(durations.reduce((a, b) => a + b, 0) / durations.length)
+      : 0;
+    const completed = taskMetrics.filter((t) => t.status === "completed" || t.status === "done").length;
+    const failed = taskMetrics.filter((t) => t.status === "failed" || t.status === "error").length;
+    const total = completed + failed;
+    successRate = total > 0 ? Math.round((completed / total) * 1000) / 10 : 100;
+  }
+
   return NextResponse.json({
     client: {
       id: client.id,
@@ -47,6 +68,8 @@ export async function GET() {
     stats: {
       total_tasks: totalTasks || 0,
       today_tasks: todayTasks || 0,
+      avg_duration_ms: avgDuration,
+      success_rate: successRate,
     },
   });
 }

@@ -17,6 +17,8 @@ interface PortalData {
   stats: {
     total_tasks: number;
     today_tasks: number;
+    avg_duration_ms: number;
+    success_rate: number;
   };
 }
 
@@ -83,13 +85,17 @@ export default function PortalDashboard() {
     },
     {
       label: "Avg Duration",
-      value: "2.4s",
+      value: data.stats.avg_duration_ms > 0
+        ? `${(data.stats.avg_duration_ms / 1000).toFixed(1)}s`
+        : "—",
       icon: Clock,
       color: "#f59e0b",
     },
     {
       label: "Success Rate",
-      value: "99.7%",
+      value: data.stats.total_tasks > 0
+        ? `${data.stats.success_rate}%`
+        : "—",
       icon: TrendingUp,
       color: "#10b981",
     },

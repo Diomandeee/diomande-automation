@@ -28,6 +28,7 @@ export interface Project {
   deviceType: DeviceType;
   accentColor: string;
   icon?: string; // path in /public/projects/icons/
+  screenshot?: string; // path in /public/projects/screenshots/
   testflight?: { status: "active" | "coming-soon"; url?: string };
   features?: string[];
   links?: { label: string; url: string }[];

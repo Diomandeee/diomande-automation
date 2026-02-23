@@ -8,6 +8,7 @@ import {
   Settings,
   CreditCard,
   Rocket,
+  BarChart3,
   Zap,
   LogOut,
 } from "lucide-react";
@@ -19,6 +20,7 @@ const navItems = [
   { href: "/portal/tasks", icon: ListTodo, label: "Tasks" },
   { href: "/portal/setup", icon: Rocket, label: "Setup" },
   { href: "/portal/billing", icon: CreditCard, label: "Billing" },
+  { href: "/portal/analytics", icon: BarChart3, label: "Analytics" },
   { href: "/portal/settings", icon: Settings, label: "Settings" },
 ];
 

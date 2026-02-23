@@ -12,22 +12,30 @@ interface BillingCardProps {
   stripeCustomerId?: string;
 }
 
-const tierPricing: Record<string, { monthly: string; setup: string }> = {
-  starter: { monthly: "$500", setup: "$2,500" },
-  professional: { monthly: "$1,500", setup: "$7,500" },
-  enterprise: { monthly: "Custom", setup: "$20,000+" },
+const tierPricing: Record<string, { monthly: string; setup: string | null }> = {
+  free: { monthly: "$0", setup: null },
+  starter: { monthly: "$0", setup: null },
+  pro: { monthly: "$49", setup: null },
+  community_pro: { monthly: "$49", setup: null },
+  enterprise: { monthly: "Custom", setup: null },
 };
 
 export function BillingCard({ tier, status, stripeCustomerId }: BillingCardProps) {
   const [loading, setLoading] = useState(false);
-  const pricing = tierPricing[tier] || tierPricing.starter;
+  const pricing = tierPricing[tier] || tierPricing.free;
 
   async function handleManageBilling() {
     if (!stripeCustomerId) return;
     setLoading(true);
-    // In production, this would create a Stripe billing portal session
-    window.open("https://billing.stripe.com/p/login", "_blank");
-    setLoading(false);
+    try {
+      const res = await fetch("/api/stripe/portal", { method: "POST" });
+      const { url } = await res.json();
+      if (url) window.location.href = url;
+    } catch {
+      // Fallback
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -50,10 +58,6 @@ export function BillingCard({ tier, status, stripeCustomerId }: BillingCardProps
         <div className="flex justify-between items-baseline">
           <span className="text-[#6b6b80]">Monthly</span>
           <span className="text-white font-medium">{pricing.monthly}/mo</span>
-        </div>
-        <div className="flex justify-between items-baseline">
-          <span className="text-[#6b6b80]">Setup Fee</span>
-          <span className="text-[#a0a0b8]">{pricing.setup} (paid)</span>
         </div>
       </div>
 

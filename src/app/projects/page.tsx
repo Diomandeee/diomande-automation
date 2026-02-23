@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Navigation } from "@/components/marketing/Navigation";
 import { Footer } from "@/components/marketing/Footer";
 import { ProjectDirectory } from "./ProjectDirectory";
@@ -14,7 +15,9 @@ export default function ProjectsPage() {
     <>
       <Navigation />
       <main className="pt-24 pb-16">
-        <ProjectDirectory />
+        <Suspense fallback={<div className="max-w-7xl mx-auto px-6 animate-pulse h-96" />}>
+          <ProjectDirectory />
+        </Suspense>
       </main>
       <Footer />
     </>

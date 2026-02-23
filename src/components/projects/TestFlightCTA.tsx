@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 
 interface TestFlightCTAProps {
   status: "active" | "coming-soon";
@@ -28,6 +29,7 @@ export function TestFlightCTA({ status, url, projectName }: TestFlightCTAProps) 
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("testflight_click", { project: projectName })}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#007AFF] text-white font-medium text-sm hover:bg-[#0066DD] transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

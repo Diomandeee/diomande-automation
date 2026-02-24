@@ -88,7 +88,7 @@ export const tagColors: Record<string, string> = {
   Protocols: "#00d4ff", Emergence: "#8b5cf6", "AI-to-AI": "#ef4444",
   Physics: "#06b6d4", Distributed: "#00d4ff", Thinking: "#8b5cf6",
   Swarm: "#f59e0b", Consensus: "#10b981", Transfer: "#06b6d4",
-  DPO: "#ec4899", Personalization: "#f59e0b", Time: "#8b5cf6",
+  DPO: "#ec4899", Personalization: "#f59e0b", Time: "#8b5cf6", Social: "#ec4899",
   Logic: "#06b6d4", Reasoning: "#10b981",
   // Tech-specific
   TypeScript: "#06b6d4", Python: "#10b981", JavaScript: "#f59e0b",
@@ -300,6 +300,7 @@ export const projects: Project[] = [
     accentColor: "#8b5cf6",
     icon: "/projects/icons/serenity-soother.png",
     testflight: { status: "coming-soon" },
+    links: [{ label: "Storefront", url: "https://serenity-store.vercel.app" }],
     features: [
       "Adaptive soundscapes that respond to time of day",
       "Guided breathing sessions with haptic feedback",
@@ -407,6 +408,7 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "browser",
     accentColor: "#10b981",
+    links: [{ label: "Live Demo", url: "https://milkmendelivery.vercel.app" }],
     features: [
       "Route optimization for delivery drivers",
       "Customer subscription management",
@@ -427,6 +429,10 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "browser",
     accentColor: "#f59e0b",
+    links: [
+      { label: "Landing Page", url: "https://meaningfullpower.com" },
+      { label: "Storefront", url: "https://storefront-rosy-kappa.vercel.app" },
+    ],
     features: [
       "Mobile-first responsive design",
       "Content creation and publishing",
@@ -452,6 +458,28 @@ export const projects: Project[] = [
       "Personal brand showcase",
       "Project portfolio gallery",
       "Contact and social links",
+    ],
+  },
+  {
+    slug: "cali-lights",
+    name: "Cali Lights",
+    tagline: "Collaborative memory experience",
+    description: "Photo-sharing platform with collaborative chains, missions, constellation maps, and real-time party mode",
+    category: "Web Platforms",
+    tags: ["Social", "Real-time", "Visualization"],
+    tech: ["Next.js", "PostgreSQL", "Ably", "Mapbox"],
+    buildHours: 36,
+    maturity: "mvp",
+    featured: false,
+    deviceType: "browser",
+    accentColor: "#f59e0b",
+    links: [{ label: "Live Demo", url: "https://cali-lights.vercel.app" }],
+    features: [
+      "Photo chains — collaborative visual storytelling",
+      "Mission system with location-based challenges",
+      "Constellation map of connected memories",
+      "Real-time party mode with live sharing",
+      "Oracle and solo contemplation modes",
     ],
   },
 
@@ -968,6 +996,7 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "terminal",
     accentColor: "#f59e0b",
+    links: [{ label: "PyPI Package", url: "https://pypi.org/project/nko/" }],
     features: [
       "Published on PyPI — pip install nko",
       "Phonetic analysis for Manding languages",

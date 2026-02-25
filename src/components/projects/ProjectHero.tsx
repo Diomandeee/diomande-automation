@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Clock } from "lucide-react";
+import { Clock, Github, Lock } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { maturityConfig } from "@/data/projects";
 import { DeviceFrame } from "./DeviceFrame";
@@ -30,19 +30,29 @@ export function ProjectHero({ project }: ProjectHeroProps) {
             className="absolute inset-0 blur-[60px] opacity-15"
             style={{ backgroundColor: project.accentColor }}
           />
-          <DeviceFrame
-            deviceType={project.deviceType}
-            title={project.name}
-            url={`https://${project.slug}.app`}
-            filename={`${project.slug}.ts`}
-          >
-            <MockupContent
-              slug={project.slug}
-              category={project.category}
-              accentColor={project.accentColor}
-              name={project.name}
+          {project.screenshot ? (
+            <Image
+              src={project.screenshot}
+              alt={`${project.name} screenshot`}
+              width={1280}
+              height={800}
+              className="rounded-xl border border-white/10 shadow-2xl shadow-black/40"
             />
-          </DeviceFrame>
+          ) : (
+            <DeviceFrame
+              deviceType={project.deviceType}
+              title={project.name}
+              url={`https://${project.slug}.app`}
+              filename={`${project.slug}.ts`}
+            >
+              <MockupContent
+                slug={project.slug}
+                category={project.category}
+                accentColor={project.accentColor}
+                name={project.name}
+              />
+            </DeviceFrame>
+          )}
         </div>
       </motion.div>
 
@@ -91,22 +101,38 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           {project.description}
         </p>
 
-        {/* Links */}
-        {project.links && project.links.length > 0 && (
-          <div className="flex gap-3">
-            {project.links.map((link) => (
+        {/* Links + GitHub */}
+        <div className="flex gap-3 flex-wrap">
+          {project.github && (
+            project.github.visibility === "public" ? (
               <a
-                key={link.url}
-                href={link.url}
+                href={project.github.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white hover:bg-white/10 transition-colors"
               >
-                {link.label}
+                <Github className="w-4 h-4" />
+                View Source
               </a>
-            ))}
-          </div>
-        )}
+            ) : (
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.03] border border-white/[0.06] text-sm text-[#7a7a95]">
+                <Lock className="w-3.5 h-3.5" />
+                Private Repo
+              </span>
+            )
+          )}
+          {project.links?.map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm text-white hover:bg-white/10 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </motion.div>
     </div>
   );

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 import { Button } from "@/components/shared/Button";
+import { SoundToggle } from "@/components/shared/SoundToggle";
 
 const navLinks = [
   { href: "#gallery", label: "Gallery" },
@@ -44,6 +45,7 @@ export function Navigation() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
+          <SoundToggle />
           <Link href="/portal">
             <Button variant="ghost" size="sm">
               Sign In
@@ -88,6 +90,10 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
+              <div className="flex items-center gap-2 pt-2">
+                <SoundToggle />
+                <span className="text-xs text-[#6b6b80]">Sound</span>
+              </div>
               <div className="pt-3 border-t border-white/5 space-y-2">
                 <Link href="/portal" className="block">
                   <Button variant="secondary" size="sm" className="w-full">

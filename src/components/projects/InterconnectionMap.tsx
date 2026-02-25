@@ -9,6 +9,7 @@ import { GraphNodeComponent } from "./graph/GraphNode";
 import { GraphEdgeComponent } from "./graph/GraphEdge";
 import { GraphLegend } from "./graph/GraphLegend";
 import { GraphControls } from "./graph/GraphControls";
+import { useProjectFocus, useSetProjectFocus } from "@/context/ProjectFocusContext";
 
 const WIDTH = 900;
 const HEIGHT = 600;
@@ -78,6 +79,9 @@ export function InterconnectionMap() {
     () => new Set(categories)
   );
 
+  const { focusedProject } = useProjectFocus();
+  const { setFocus, clearFocus } = useSetProjectFocus();
+
   const edges = useMemo(() => computeEdges(projects), []);
   const nodes = useMemo(() => computeLayout(projects, edges, WIDTH, HEIGHT), [edges]);
 
@@ -108,22 +112,25 @@ export function InterconnectionMap() {
     });
   }, []);
 
+  // Merge local hover with cross-feature focus
+  const effectiveHover = hoveredNode ?? focusedProject;
+
   const connectedToHovered = useMemo(() => {
-    if (!hoveredNode) return new Set<string>();
-    return adjacency.get(hoveredNode) ?? new Set<string>();
-  }, [hoveredNode, adjacency]);
+    if (!effectiveHover) return new Set<string>();
+    return adjacency.get(effectiveHover) ?? new Set<string>();
+  }, [effectiveHover, adjacency]);
 
   const isNodeHighlighted = (slug: string) =>
-    slug === hoveredNode || connectedToHovered.has(slug);
+    slug === effectiveHover || connectedToHovered.has(slug);
 
   const isNodeDimmed = (slug: string) =>
     !activeCategories.has(nodeMap.get(slug)?.category ?? "") ||
-    (hoveredNode !== null && !isNodeHighlighted(slug));
+    (effectiveHover !== null && !isNodeHighlighted(slug));
 
   const isEdgeHighlighted = (edge: GraphEdge) =>
     edge === hoveredEdge ||
-    edge.source === hoveredNode ||
-    edge.target === hoveredNode;
+    edge.source === effectiveHover ||
+    edge.target === effectiveHover;
 
   const isEdgeDimmed = (edge: GraphEdge) => {
     const srcCat = nodeMap.get(edge.source)?.category ?? "";
@@ -131,7 +138,7 @@ export function InterconnectionMap() {
     return (
       !activeCategories.has(srcCat) ||
       !activeCategories.has(tgtCat) ||
-      (hoveredNode !== null && !isEdgeHighlighted(edge))
+      (effectiveHover !== null && !isEdgeHighlighted(edge))
     );
   };
 
@@ -147,10 +154,10 @@ export function InterconnectionMap() {
         text: `${src.name} + ${tgt.name}: ${hoveredEdge.sharedItems.join(", ")}`,
       };
     }
-    if (hoveredNode) {
-      const node = nodeMap.get(hoveredNode);
+    if (effectiveHover) {
+      const node = nodeMap.get(effectiveHover);
       if (!node) return null;
-      const connections = adjacency.get(hoveredNode)?.size ?? 0;
+      const connections = adjacency.get(effectiveHover)?.size ?? 0;
       return {
         x: node.x,
         y: node.y - 20,
@@ -158,7 +165,7 @@ export function InterconnectionMap() {
       };
     }
     return null;
-  }, [hoveredNode, hoveredEdge, nodeMap, adjacency]);
+  }, [effectiveHover, hoveredEdge, nodeMap, adjacency]);
 
   return (
     <div className="space-y-4">
@@ -194,8 +201,15 @@ export function InterconnectionMap() {
                 node={node}
                 isHighlighted={isNodeHighlighted(node.slug)}
                 isDimmed={isNodeDimmed(node.slug)}
-                onHover={setHoveredNode}
-                onClick={(slug) => router.push(`/projects/${slug}`)}
+                onHover={(slug: string | null) => {
+                  setHoveredNode(slug);
+                  if (slug) setFocus(slug, "map", true);
+                  else clearFocus();
+                }}
+                onClick={(slug: string) => {
+                  setFocus(slug, "map");
+                  router.push(`/projects/${slug}`);
+                }}
               />
             ))}
             {/* Tooltip */}

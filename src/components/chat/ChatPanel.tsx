@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { ChatMessage } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { getResponse } from "@/lib/chat-engine";
+import { useProjectFocus } from "@/context/ProjectFocusContext";
+import { projects as allProjects } from "@/data/projects";
+import { SoundEngine } from "@/lib/sound-engine";
 
 interface Message {
   id: number;
@@ -30,6 +33,13 @@ export function ChatPanel({ onClose }: ChatPanelProps) {
   ]);
   const [isThinking, setIsThinking] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const { focusedProject, focusSource, isTransient } = useProjectFocus();
+
+  const focusedProjectName = useMemo(() => {
+    if (!focusedProject || focusSource === "chat" || isTransient) return null;
+    return allProjects.find((p) => p.slug === focusedProject)?.name ?? null;
+  }, [focusedProject, focusSource, isTransient]);
 
   const scrollToBottom = useCallback(() => {
     if (scrollRef.current) {
@@ -57,6 +67,7 @@ export function ChatPanel({ onClose }: ChatPanelProps) {
       };
       setMessages((prev) => [...prev, botMsg]);
       setIsThinking(false);
+      SoundEngine.getInstance().chatTone();
     }, 400 + Math.random() * 400);
   };
 
@@ -107,6 +118,19 @@ export function ChatPanel({ onClose }: ChatPanelProps) {
           </div>
         )}
       </div>
+
+      {/* Suggestion pill from cross-feature focus */}
+      {focusedProjectName && (
+        <div className="px-3 py-1.5 border-t border-white/[0.04]">
+          <button
+            onClick={() => handleSend(`Tell me about ${focusedProjectName}`)}
+            disabled={isThinking}
+            className="text-xs px-3 py-1.5 rounded-full bg-[#00d4ff]/10 text-[#00d4ff] border border-[#00d4ff]/20 hover:bg-[#00d4ff]/20 transition-colors cursor-pointer disabled:opacity-50"
+          >
+            Ask about {focusedProjectName}
+          </button>
+        </div>
+      )}
 
       {/* Input */}
       <div className="px-3 py-3 border-t border-white/[0.06]">

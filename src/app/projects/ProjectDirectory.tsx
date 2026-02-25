@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useEffect, useRef, lazy, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Filter, Search, X, LayoutGrid, GitBranch } from "lucide-react";
+import { Filter, Search, X, LayoutGrid, GitBranch, Github, Globe, Unlock } from "lucide-react";
 import { projects, categories, type Maturity, type DeviceType } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { trackEvent } from "@/lib/analytics";
@@ -47,6 +47,9 @@ export function ProjectDirectory() {
   const [deviceFilter, setDeviceFilter] = useState<DeviceType | "all">(
     (searchParams.get("device") as DeviceType | "all") || "all"
   );
+  const [showHasDemo, setShowHasDemo] = useState(searchParams.get("demo") === "true");
+  const [showHasSource, setShowHasSource] = useState(searchParams.get("source") === "true");
+  const [showOpenSource, setShowOpenSource] = useState(searchParams.get("oss") === "true");
 
   // Debounce search query
   useEffect(() => {
@@ -77,8 +80,16 @@ export function ProjectDirectory() {
   );
 
   useEffect(() => {
-    syncURL({ q: debouncedQuery, category: activeCategory, maturity: maturityFilter, device: deviceFilter });
-  }, [debouncedQuery, activeCategory, maturityFilter, deviceFilter, syncURL]);
+    syncURL({
+      q: debouncedQuery,
+      category: activeCategory,
+      maturity: maturityFilter,
+      device: deviceFilter,
+      demo: showHasDemo ? "true" : "",
+      source: showHasSource ? "true" : "",
+      oss: showOpenSource ? "true" : "",
+    });
+  }, [debouncedQuery, activeCategory, maturityFilter, deviceFilter, showHasDemo, showHasSource, showOpenSource, syncURL]);
 
   const filtered = useMemo(() => {
     let result = projects;
@@ -98,6 +109,21 @@ export function ProjectDirectory() {
       result = result.filter((p) => p.deviceType === deviceFilter);
     }
 
+    // Has Demo
+    if (showHasDemo) {
+      result = result.filter((p) => p.links?.some((l) => l.url) || p.testflight?.status === "active");
+    }
+
+    // Has Source Code
+    if (showHasSource) {
+      result = result.filter((p) => p.github);
+    }
+
+    // Open Source
+    if (showOpenSource) {
+      result = result.filter((p) => p.github?.visibility === "public");
+    }
+
     // Search
     if (debouncedQuery.trim()) {
       const q = debouncedQuery.toLowerCase();
@@ -112,7 +138,7 @@ export function ProjectDirectory() {
     }
 
     return result;
-  }, [activeCategory, maturityFilter, deviceFilter, debouncedQuery]);
+  }, [activeCategory, maturityFilter, deviceFilter, showHasDemo, showHasSource, showOpenSource, debouncedQuery]);
 
   const counts = allCategories.map((cat) => ({
     name: cat,
@@ -255,8 +281,30 @@ export function ProjectDirectory() {
             </div>
           </div>
 
+          {/* Quick filter toggles */}
+          <div className="flex items-center gap-2 mb-10">
+            {[
+              { key: "demo", icon: Globe, label: "Has Demo", active: showHasDemo, toggle: () => setShowHasDemo(!showHasDemo) },
+              { key: "source", icon: Github, label: "Has Source", active: showHasSource, toggle: () => setShowHasSource(!showHasSource) },
+              { key: "oss", icon: Unlock, label: "Open Source", active: showOpenSource, toggle: () => setShowOpenSource(!showOpenSource) },
+            ].map(({ key, icon: Icon, label, active, toggle }) => (
+              <button
+                key={key}
+                onClick={toggle}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+                  active
+                    ? "bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20"
+                    : "bg-white/5 text-[#7a7a95] border border-white/5 hover:text-white hover:border-white/10"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                {label}
+              </button>
+            ))}
+          </div>
+
           {/* Result count */}
-          {(debouncedQuery || maturityFilter !== "all" || deviceFilter !== "all") && (
+          {(debouncedQuery || maturityFilter !== "all" || deviceFilter !== "all" || showHasDemo || showHasSource || showOpenSource) && (
             <p className="text-sm text-[#7a7a95] mb-4">
               {filtered.length} project{filtered.length !== 1 ? "s" : ""} found
             </p>
@@ -283,6 +331,9 @@ export function ProjectDirectory() {
                   setActiveCategory("All");
                   setMaturityFilter("all");
                   setDeviceFilter("all");
+                  setShowHasDemo(false);
+                  setShowHasSource(false);
+                  setShowOpenSource(false);
                 }}
                 className="mt-3 text-sm text-[#00d4ff] hover:underline cursor-pointer"
               >
@@ -300,28 +351,35 @@ export function ProjectDirectory() {
         transition={{ delay: 0.5 }}
         className="mt-16 text-center"
       >
-        <div className="flex items-center justify-center gap-8 text-sm text-[#7a7a95]">
+        <div className="flex items-center justify-center gap-6 sm:gap-8 text-sm text-[#7a7a95] flex-wrap">
           <div>
             <span className="text-2xl font-bold text-white block">
-              {projects.filter((p) => p.maturity === "production").length}
+              {projects.filter((p) => p.github).length}
             </span>
-            Production
+            GitHub Repos
           </div>
-          <div className="w-px h-8 bg-white/10" />
+          <div className="w-px h-8 bg-white/10 hidden sm:block" />
           <div>
             <span className="text-2xl font-bold text-white block">
-              {projects.filter((p) => p.maturity === "mvp").length}
+              {projects.filter((p) => p.github?.visibility === "public").length}
             </span>
-            MVP
+            Open Source
           </div>
-          <div className="w-px h-8 bg-white/10" />
+          <div className="w-px h-8 bg-white/10 hidden sm:block" />
           <div>
             <span className="text-2xl font-bold text-white block">
-              {projects.filter((p) => p.maturity === "prototype").length}
+              {projects.filter((p) => p.links?.some((l) => l.url)).length}
             </span>
-            Prototype
+            Live Demos
           </div>
-          <div className="w-px h-8 bg-white/10" />
+          <div className="w-px h-8 bg-white/10 hidden sm:block" />
+          <div>
+            <span className="text-2xl font-bold text-white block">
+              {projects.filter((p) => p.testflight).length}
+            </span>
+            TestFlight Apps
+          </div>
+          <div className="w-px h-8 bg-white/10 hidden sm:block" />
           <div>
             <span className="text-2xl font-bold text-white block">
               {new Set(projects.flatMap((p) => p.tech)).size}+

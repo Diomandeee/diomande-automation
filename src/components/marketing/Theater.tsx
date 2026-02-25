@@ -13,12 +13,15 @@ import {
   type Scenario,
   type TheaterStage,
 } from "@/data/theater-scenarios";
+import { useSetProjectFocus } from "@/context/ProjectFocusContext";
+import { SoundEngine } from "@/lib/sound-engine";
 
 export function Theater() {
   const [stage, setStage] = useState<TheaterStage>("idle");
   const [scenario, setScenario] = useState<Scenario | null>(null);
   const [prompt, setPrompt] = useState("");
   const timersRef = useRef<NodeJS.Timeout[]>([]);
+  const { setFocus } = useSetProjectFocus();
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach(clearTimeout);
@@ -46,11 +49,17 @@ export function Theater() {
 
       stages.forEach((s, i) => {
         elapsed += matched.stageTimings[i + 1] ?? 600;
-        const t = setTimeout(() => setStage(s), elapsed);
+        const t = setTimeout(() => {
+          setStage(s);
+          SoundEngine.getInstance().pipelineTick(i);
+          if (s === "complete" && matched.resultProject) {
+            setFocus(matched.resultProject, "theater");
+          }
+        }, elapsed);
         timersRef.current.push(t);
       });
     },
-    [clearTimers]
+    [clearTimers, setFocus]
   );
 
   const reset = useCallback(() => {
@@ -208,12 +217,20 @@ export function Theater() {
                     </div>
                     <div className="flex items-center gap-3">
                       {scenario.resultProject && (
-                        <Link
-                          href={`/projects/${scenario.resultProject}`}
-                          className="text-xs text-[#00d4ff] hover:underline"
-                        >
-                          View similar project &rarr;
-                        </Link>
+                        <>
+                          <Link
+                            href={`/projects/${scenario.resultProject}`}
+                            className="text-xs text-[#00d4ff] hover:underline"
+                          >
+                            View similar project &rarr;
+                          </Link>
+                          <Link
+                            href={`/projects?view=map&focus=${scenario.resultProject}`}
+                            className="text-xs text-[#8b5cf6] hover:underline"
+                          >
+                            See connections &rarr;
+                          </Link>
+                        </>
                       )}
                       <button
                         onClick={reset}

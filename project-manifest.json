@@ -1,0 +1,1458 @@
+[
+  {
+    "repo": ".github",
+    "url": "https://github.com/Diomandeee/.github",
+    "visibility": "public",
+    "description": "Org-wide CI templates, PR templates, defaults",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "28-days-of-code",
+    "url": "https://github.com/Diomandeee/28-days-of-code",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "admin-dashboard",
+    "url": "https://github.com/Diomandeee/admin-dashboard",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "admissibility-kernel",
+    "url": "https://github.com/Diomandeee/admissibility-kernel",
+    "visibility": "public",
+    "description": "Deterministic context slicing with cryptographic admissibility verification for RAG systems",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "agent-reputation",
+    "url": "https://github.com/Diomandeee/agent-reputation",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "AgentCommandCenter",
+    "url": "https://github.com/Diomandeee/AgentCommandCenter",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "ai-orchestra",
+    "url": "https://github.com/Diomandeee/ai-orchestra",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "ai-union",
+    "url": "https://github.com/Diomandeee/ai-union",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "ai-union-gov",
+    "url": "https://github.com/Diomandeee/ai-union-gov",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "apple-notes-audit",
+    "url": "https://github.com/Diomandeee/apple-notes-audit",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "AudioEngine",
+    "url": "https://github.com/Diomandeee/AudioEngine",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "Aura",
+    "url": "https://github.com/Diomandeee/Aura",
+    "visibility": "private",
+    "description": "iOS wellness app \u2014 biometric tracking, guided breathing, and holistic health insights",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "bitwork",
+    "url": "https://github.com/Diomandeee/bitwork",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "blog-starter-kit",
+    "url": "https://github.com/Diomandeee/blog-starter-kit",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "BodyBeat",
+    "url": "https://github.com/Diomandeee/BodyBeat",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "brews-with-beats-app",
+    "url": "https://github.com/Diomandeee/brews-with-beats-app",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "brews-with-beats-mobile",
+    "url": "https://github.com/Diomandeee/brews-with-beats-mobile",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "brews-with-beats-mobile-app",
+    "url": "https://github.com/Diomandeee/brews-with-beats-mobile-app",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "brews-with-beats-v1",
+    "url": "https://github.com/Diomandeee/brews-with-beats-v1",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "buf",
+    "url": "https://github.com/Diomandeee/buf",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "bufbarista-crm",
+    "url": "https://github.com/Diomandeee/bufbarista-crm",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "buff-flow",
+    "url": "https://github.com/Diomandeee/buff-flow",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "buffbarista-dance",
+    "url": "https://github.com/Diomandeee/buffbarista-dance",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "BWB",
+    "url": "https://github.com/Diomandeee/BWB",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "cali-lights",
+    "url": "https://github.com/Diomandeee/cali-lights",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "cali-lights-expo",
+    "url": "https://github.com/Diomandeee/cali-lights-expo",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "CaliLightsIOS",
+    "url": "https://github.com/Diomandeee/CaliLightsIOS",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "cc-core",
+    "url": "https://github.com/Diomandeee/cc-core",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "cc-dashboard",
+    "url": "https://github.com/Diomandeee/cc-dashboard",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "cc-mcs",
+    "url": "https://github.com/Diomandeee/cc-mcs",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "cc-studio",
+    "url": "https://github.com/Diomandeee/cc-studio",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "cc-trajectory",
+    "url": "https://github.com/Diomandeee/cc-trajectory",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "chain-tree",
+    "url": "https://github.com/Diomandeee/chain-tree",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "chain-works",
+    "url": "https://github.com/Diomandeee/chain-works",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "chain_memory",
+    "url": "https://github.com/Diomandeee/chain_memory",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "chain_tree",
+    "url": "https://github.com/Diomandeee/chain_tree",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "chain_trees",
+    "url": "https://github.com/Diomandeee/chain_trees",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "chain_works",
+    "url": "https://github.com/Diomandeee/chain_works",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "chronicles-cli",
+    "url": "https://github.com/Diomandeee/chronicles-cli",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "clarity-agent-protocol",
+    "url": "https://github.com/Diomandeee/clarity-agent-protocol",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "clawdbot-mobile",
+    "url": "https://github.com/Diomandeee/clawdbot-mobile",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "cognitive-twin",
+    "url": "https://github.com/Diomandeee/cognitive-twin",
+    "visibility": "public",
+    "description": "User pattern learning with trajectory-aware DPO training for conversational AI",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "Comp-Core",
+    "url": "https://github.com/Diomandeee/Comp-Core",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "compass",
+    "url": "https://github.com/Diomandeee/compass",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "CompCoreMotion",
+    "url": "https://github.com/Diomandeee/CompCoreMotion",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "computational-choreography",
+    "url": "https://github.com/Diomandeee/computational-choreography",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "ConductorEngine",
+    "url": "https://github.com/Diomandeee/ConductorEngine",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "content-pipeline",
+    "url": "https://github.com/Diomandeee/content-pipeline",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "content-studio",
+    "url": "https://github.com/Diomandeee/content-studio",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "context-handshake",
+    "url": "https://github.com/Diomandeee/context-handshake",
+    "visibility": "public",
+    "description": "Seamless context transfer between agents",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "CreativeDirector",
+    "url": "https://github.com/Diomandeee/CreativeDirector",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "crm-app",
+    "url": "https://github.com/Diomandeee/crm-app",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "crm-dashboard",
+    "url": "https://github.com/Diomandeee/crm-dashboard",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "cron",
+    "url": "https://github.com/Diomandeee/cron",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "cross-script-bridge",
+    "url": "https://github.com/Diomandeee/cross-script-bridge",
+    "visibility": "public",
+    "description": "Real-time N'Ko/Arabic/Latin transliteration \u2014 PWA, browser extension, iOS keyboard",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "dep-patterns",
+    "url": "https://github.com/Diomandeee/dep-patterns",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "dependency-oracle",
+    "url": "https://github.com/Diomandeee/dependency-oracle",
+    "visibility": "private",
+    "description": "Python dependency conflict predictor \u2014 forecast breaking changes before they happen",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "diomande-automation",
+    "url": "https://github.com/Diomandeee/diomande-automation",
+    "visibility": "public",
+    "description": "Diomande Automation \u2014 AI-Powered Task Automation Service Platform",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "dj_assistant",
+    "url": "https://github.com/Diomandeee/dj_assistant",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "dlm",
+    "url": "https://github.com/Diomandeee/dlm",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "dream-weaver-engine",
+    "url": "https://github.com/Diomandeee/dream-weaver-engine",
+    "visibility": "public",
+    "description": "Autonomous idea incubation via GitHub Actions \u2014 SEED to BLOOM lifecycle",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "emergent-protocols",
+    "url": "https://github.com/Diomandeee/emergent-protocols",
+    "visibility": "public",
+    "description": "AI-to-AI communication standards that emerge organically",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "eternal-serenity",
+    "url": "https://github.com/Diomandeee/eternal-serenity",
+    "visibility": "private",
+    "description": "Eternal Serenity \u2014 Therapeutic LitRPG for iOS. Wellness RPG where personal growth IS the game mechanic.",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "Eternal_Serenity",
+    "url": "https://github.com/Diomandeee/Eternal_Serenity",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "evoflow",
+    "url": "https://github.com/Diomandeee/evoflow",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "exif-photo-blog",
+    "url": "https://github.com/Diomandeee/exif-photo-blog",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "failure-museum",
+    "url": "https://github.com/Diomandeee/failure-museum",
+    "visibility": "private",
+    "description": "Curated failure case studies \u2014 learn from what went wrong",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "Frameworks",
+    "url": "https://github.com/Diomandeee/Frameworks",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "french-connect",
+    "url": "https://github.com/Diomandeee/french-connect",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "GestureSystem",
+    "url": "https://github.com/Diomandeee/GestureSystem",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "goal-archaeologist",
+    "url": "https://github.com/Diomandeee/goal-archaeologist",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "granddiomande.com",
+    "url": "https://github.com/Diomandeee/granddiomande.com",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "handguard-dashboard",
+    "url": "https://github.com/Diomandeee/handguard-dashboard",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "homelab",
+    "url": "https://github.com/Diomandeee/homelab",
+    "visibility": "private",
+    "description": "OpenClaw Infrastructure-as-Code \u2014 clawdbot, claude, pulse, tailscale configs",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "illuminated_vanguard",
+    "url": "https://github.com/Diomandeee/illuminated_vanguard",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "image-gallery",
+    "url": "https://github.com/Diomandeee/image-gallery",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "ios-app-template",
+    "url": "https://github.com/Diomandeee/ios-app-template",
+    "visibility": "private",
+    "description": "Buf Barista iOS app template \u2014 battle-tested architecture from shipping Serenity Soother + Milk Men",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "koji-assistant",
+    "url": "https://github.com/Diomandeee/koji-assistant",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "koji-crm",
+    "url": "https://github.com/Diomandeee/koji-crm",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "learnnko",
+    "url": "https://github.com/Diomandeee/learnnko",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "LifeOS",
+    "url": "https://github.com/Diomandeee/LifeOS",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "LifeOS.bak.1770767057",
+    "url": "https://github.com/Diomandeee/LifeOS.bak.1770767057",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "linguistic-dna",
+    "url": "https://github.com/Diomandeee/linguistic-dna",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "linguistic_synthesizer",
+    "url": "https://github.com/Diomandeee/linguistic_synthesizer",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "LinkIt",
+    "url": "https://github.com/Diomandeee/LinkIt",
+    "visibility": "private",
+    "description": "Link-in-bio SaaS with glassmorphism design system, deep analytics, custom domains",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "living-docs",
+    "url": "https://github.com/Diomandeee/living-docs",
+    "visibility": "public",
+    "description": "Self-updating documentation that evolves with your codebase",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "lobe-chat",
+    "url": "https://github.com/Diomandeee/lobe-chat",
+    "visibility": "public",
+    "description": "\ud83e\udd16 Lobe Chat - an open-source, high-performance chatbot framework that supports speech synthesis, multimodal, and extensible Function Call plugin system. Supports one-click free deployment of your private ChatGPT/LLM web application.",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "location-intelligence",
+    "url": "https://github.com/Diomandeee/location-intelligence",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "mac4-adobe-setup",
+    "url": "https://github.com/Diomandeee/mac4-adobe-setup",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "market",
+    "url": "https://github.com/Diomandeee/market",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "Meaning-Full-Power",
+    "url": "https://github.com/Diomandeee/Meaning-Full-Power",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "MediaPipeCreative",
+    "url": "https://github.com/Diomandeee/MediaPipeCreative",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "memory-defrag",
+    "url": "https://github.com/Diomandeee/memory-defrag",
+    "visibility": "private",
+    "description": "AI memory optimizer \u2014 deduplicate, reorganize, and consolidate notes and context",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "mfc",
+    "url": "https://github.com/Diomandeee/mfc",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "mfp",
+    "url": "https://github.com/Diomandeee/mfp",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "migration-architect",
+    "url": "https://github.com/Diomandeee/migration-architect",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "milebrew-celebrate-ai",
+    "url": "https://github.com/Diomandeee/milebrew-celebrate-ai",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "Milk-Men-",
+    "url": "https://github.com/Diomandeee/Milk-Men-",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "milkmen-expo-build",
+    "url": "https://github.com/Diomandeee/milkmen-expo-build",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "minimax-fleet",
+    "url": "https://github.com/Diomandeee/minimax-fleet",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "UNCLASSIFIED"
+  },
+  {
+    "repo": "MocopiIntegration",
+    "url": "https://github.com/Diomandeee/MocopiIntegration",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "monetization",
+    "url": "https://github.com/Diomandeee/monetization",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "Motion",
+    "url": "https://github.com/Diomandeee/Motion",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "motion-autocomplete",
+    "url": "https://github.com/Diomandeee/motion-autocomplete",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "MotionPerspectives",
+    "url": "https://github.com/Diomandeee/MotionPerspectives",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "MoveCanvas",
+    "url": "https://github.com/Diomandeee/MoveCanvas",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "movement_mixer",
+    "url": "https://github.com/Diomandeee/movement_mixer",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "nko",
+    "url": "https://github.com/Diomandeee/nko",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "nko-code-comments",
+    "url": "https://github.com/Diomandeee/nko-code-comments",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "nko-keyboard-ai",
+    "url": "https://github.com/Diomandeee/nko-keyboard-ai",
+    "visibility": "public",
+    "description": "Intelligent predictive text for Manding languages using N'Ko script",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "notification-philosopher",
+    "url": "https://github.com/Diomandeee/notification-philosopher",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "novel",
+    "url": "https://github.com/Diomandeee/novel",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "paradox-navigator",
+    "url": "https://github.com/Diomandeee/paradox-navigator",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "perception-mesh",
+    "url": "https://github.com/Diomandeee/perception-mesh",
+    "visibility": "private",
+    "description": "Multi-device perception system \u2014 5-layer mesh with tentacle agents, basin detection, predictive routing",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "plaisir",
+    "url": "https://github.com/Diomandeee/plaisir",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "plaisir-crm",
+    "url": "https://github.com/Diomandeee/plaisir-crm",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "portfolio",
+    "url": "https://github.com/Diomandeee/portfolio",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "portfolio-assets",
+    "url": "https://github.com/Diomandeee/portfolio-assets",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "portfolio-preview",
+    "url": "https://github.com/Diomandeee/portfolio-preview",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "pos",
+    "url": "https://github.com/Diomandeee/pos",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "project-registry",
+    "url": "https://github.com/Diomandeee/project-registry",
+    "visibility": "private",
+    "description": "Master catalog of all projects \u2014 registry.yaml",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "Pulse",
+    "url": "https://github.com/Diomandeee/Pulse",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "pulse-gateway-api",
+    "url": "https://github.com/Diomandeee/pulse-gateway-api",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "PULSE-V1",
+    "url": "https://github.com/Diomandeee/PULSE-V1",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "pulse-vision-pipeline",
+    "url": "https://github.com/Diomandeee/pulse-vision-pipeline",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "pulseshared",
+    "url": "https://github.com/Diomandeee/pulseshared",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "qr",
+    "url": "https://github.com/Diomandeee/qr",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "qr-dynamic",
+    "url": "https://github.com/Diomandeee/qr-dynamic",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "rag-plusplus",
+    "url": "https://github.com/Diomandeee/rag-plusplus",
+    "visibility": "public",
+    "description": "Python bindings for RAG++ high-performance retrieval engine with trajectory-aware search",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "rag-plusplus-core",
+    "url": "https://github.com/Diomandeee/rag-plusplus-core",
+    "visibility": "public",
+    "description": "High-performance retrieval engine with SIMD-accelerated vector search and 5D trajectory memory",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "rench-connect",
+    "url": "https://github.com/Diomandeee/rench-connect",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "S20",
+    "url": "https://github.com/Diomandeee/S20",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "s2o",
+    "url": "https://github.com/Diomandeee/s2o",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "sandbox",
+    "url": "https://github.com/Diomandeee/sandbox",
+    "visibility": "private",
+    "description": "Experimental projects, prototypes, explorations",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "SecuriClaw",
+    "url": "https://github.com/Diomandeee/SecuriClaw",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "SecuriClaw-Claude",
+    "url": "https://github.com/Diomandeee/SecuriClaw-Claude",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "SecuriClaw-Codex",
+    "url": "https://github.com/Diomandeee/SecuriClaw-Codex",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "self-healing-code",
+    "url": "https://github.com/Diomandeee/self-healing-code",
+    "visibility": "private",
+    "description": "Python auto-fix engine \u2014 detect, diagnose, and repair code issues autonomously",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "serenity",
+    "url": "https://github.com/Diomandeee/serenity",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "serenity-scribe",
+    "url": "https://github.com/Diomandeee/serenity-scribe",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "serenity-soother",
+    "url": "https://github.com/Diomandeee/serenity-soother",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "Serenity-Soother-App",
+    "url": "https://github.com/Diomandeee/Serenity-Soother-App",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "Serenity-Soother-v2",
+    "url": "https://github.com/Diomandeee/Serenity-Soother-v2",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "DUPLICATE"
+  },
+  {
+    "repo": "SerenitySoother",
+    "url": "https://github.com/Diomandeee/SerenitySoother",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "session-threads-ui",
+    "url": "https://github.com/Diomandeee/session-threads-ui",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "sigil-composer",
+    "url": "https://github.com/Diomandeee/sigil-composer",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "SkateForge",
+    "url": "https://github.com/Diomandeee/SkateForge",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "skill-entity-architecture",
+    "url": "https://github.com/Diomandeee/skill-entity-architecture",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "sleep-sync",
+    "url": "https://github.com/Diomandeee/sleep-sync",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "SHOULD-ARCHIVE"
+  },
+  {
+    "repo": "sodms",
+    "url": "https://github.com/Diomandeee/sodms",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "sound-sigils",
+    "url": "https://github.com/Diomandeee/sound-sigils",
+    "visibility": "public",
+    "description": "Generate unique audio signatures from concepts \u2014 pure Python stdlib, zero deps",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "spatial-git",
+    "url": "https://github.com/Diomandeee/spatial-git",
+    "visibility": "public",
+    "description": "Navigate git history in 3D space \u2014 branches as walkways, commits as glowing nodes",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "Speak",
+    "url": "https://github.com/Diomandeee/Speak",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "SpeakFlow",
+    "url": "https://github.com/Diomandeee/SpeakFlow",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "spf",
+    "url": "https://github.com/Diomandeee/spf",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "spine",
+    "url": "https://github.com/Diomandeee/spine",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "Spore",
+    "url": "https://github.com/Diomandeee/Spore",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "stabent",
+    "url": "https://github.com/Diomandeee/stabent",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "stacks-contracts",
+    "url": "https://github.com/Diomandeee/stacks-contracts",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "StrudelMotion",
+    "url": "https://github.com/Diomandeee/StrudelMotion",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "swarm-consensus",
+    "url": "https://github.com/Diomandeee/swarm-consensus",
+    "visibility": "public",
+    "description": "Distributed decision-making across agent swarms",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "symphony_of_synthesis",
+    "url": "https://github.com/Diomandeee/symphony_of_synthesis",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "synergetic-life",
+    "url": "https://github.com/Diomandeee/synergetic-life",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "synergetic_life",
+    "url": "https://github.com/Diomandeee/synergetic_life",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "synergy_story",
+    "url": "https://github.com/Diomandeee/synergy_story",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "thebuf",
+    "url": "https://github.com/Diomandeee/thebuf",
+    "visibility": "public",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "thought-mesh",
+    "url": "https://github.com/Diomandeee/thought-mesh",
+    "visibility": "public",
+    "description": "Physics-inspired distributed thinking network",
+    "archived": false,
+    "classification": "PUBLIC-PORTFOLIO"
+  },
+  {
+    "repo": "timeline-app",
+    "url": "https://github.com/Diomandeee/timeline-app",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "trajectory-analytics",
+    "url": "https://github.com/Diomandeee/trajectory-analytics",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "trajectory-mobile",
+    "url": "https://github.com/Diomandeee/trajectory-mobile",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "trajectory-orbit",
+    "url": "https://github.com/Diomandeee/trajectory-orbit",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "trajectory-search",
+    "url": "https://github.com/Diomandeee/trajectory-search",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "Transmutation",
+    "url": "https://github.com/Diomandeee/Transmutation",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  },
+  {
+    "repo": "trust-translator",
+    "url": "https://github.com/Diomandeee/trust-translator",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "uncertainty-embracer",
+    "url": "https://github.com/Diomandeee/uncertainty-embracer",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "unified-agent-os",
+    "url": "https://github.com/Diomandeee/unified-agent-os",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "unified-memory",
+    "url": "https://github.com/Diomandeee/unified-memory",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-ACTIVE"
+  },
+  {
+    "repo": "vm-architecture",
+    "url": "https://github.com/Diomandeee/vm-architecture",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "voice-corpus",
+    "url": "https://github.com/Diomandeee/voice-corpus",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PRIVATE-INFRA"
+  },
+  {
+    "repo": "voice-to-code",
+    "url": "https://github.com/Diomandeee/voice-to-code",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "watch-whisper",
+    "url": "https://github.com/Diomandeee/watch-whisper",
+    "visibility": "private",
+    "description": "",
+    "archived": false,
+    "classification": "PUBLIC-TOOL"
+  },
+  {
+    "repo": "word_weaver",
+    "url": "https://github.com/Diomandeee/word_weaver",
+    "visibility": "private",
+    "description": "",
+    "archived": true,
+    "classification": "ARCHIVE"
+  }
+]

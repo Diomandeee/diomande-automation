@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Navigation } from "@/components/marketing/Navigation";
 import { Footer } from "@/components/marketing/Footer";
 import { ProjectDirectory } from "./ProjectDirectory";
+import { ProjectsCollectionJsonLd } from "@/components/shared/JsonLd";
 
 export const metadata: Metadata = {
   title: "Projects — Diomande Automation",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
+      <ProjectsCollectionJsonLd />
       <Navigation />
       <main className="pt-24 pb-16">
         <Suspense fallback={<div className="max-w-7xl mx-auto px-6 animate-pulse h-96" />}>

@@ -12,6 +12,7 @@ import { ProjectTechStack } from "@/components/projects/ProjectTechStack";
 import { TestFlightCTA } from "@/components/projects/TestFlightCTA";
 import { RelatedProjects } from "@/components/projects/RelatedProjects";
 import { ProjectViewTracker } from "@/components/projects/ProjectViewTracker";
+import { JsonLd } from "@/components/shared/JsonLd";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -45,8 +46,30 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: project.name,
+    description: project.description,
+    url: `https://diomande-automation.vercel.app/projects/${project.slug}`,
+    applicationCategory: project.category,
+    operatingSystem: project.tags.includes("iOS")
+      ? "iOS"
+      : project.tags.includes("macOS")
+        ? "macOS"
+        : "Web",
+    author: {
+      "@type": "Person",
+      name: "Mohamed Diomande",
+      url: "https://diomande-automation.vercel.app",
+    },
+    ...(project.github && { codeRepository: project.github.url }),
+    keywords: project.tags.join(", "),
+  };
+
   return (
     <>
+      <JsonLd data={projectJsonLd} />
       <ProjectViewTracker slug={project.slug} />
       <Navigation />
       <main className="pt-24 pb-16">

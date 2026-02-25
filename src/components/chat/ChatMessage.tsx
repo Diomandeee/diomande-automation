@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useSetProjectFocus } from "@/context/ProjectFocusContext";
 
 interface ChatMessageProps {
   text: string;
@@ -10,6 +11,7 @@ interface ChatMessageProps {
 }
 
 export function ChatMessage({ text, isUser, projects }: ChatMessageProps) {
+  const { setFocus } = useSetProjectFocus();
   return (
     <motion.div
       initial={{ opacity: 0, y: 8, scale: 0.96 }}
@@ -31,6 +33,7 @@ export function ChatMessage({ text, isUser, projects }: ChatMessageProps) {
               <Link
                 key={slug}
                 href={`/projects/${slug}`}
+                onClick={() => setFocus(slug, "chat")}
                 className="inline-block px-2 py-0.5 rounded-md text-xs bg-[#00d4ff]/10 text-[#00d4ff] hover:bg-[#00d4ff]/20 transition-colors"
               >
                 {slug}

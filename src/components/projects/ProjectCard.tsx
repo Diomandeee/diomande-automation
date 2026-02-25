@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { tagColors, maturityConfig } from "@/data/projects";
+import { useSetProjectFocus } from "@/context/ProjectFocusContext";
 import { DeviceFrame } from "./DeviceFrame";
 import { MockupContent } from "./mockups/MockupContent";
 
@@ -24,6 +25,7 @@ export function ProjectCard({ project, variant, index = 0 }: ProjectCardProps) {
 
 function FeaturedCard({ project, index }: { project: Project; index: number }) {
   const primaryColor = tagColors[project.tags[0]] || project.accentColor;
+  const { setFocus, clearFocus } = useSetProjectFocus();
 
   return (
     <motion.div
@@ -31,6 +33,8 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
+      onMouseEnter={() => setFocus(project.slug, "card", true)}
+      onMouseLeave={() => clearFocus()}
     >
       <Link href={`/projects/${project.slug}`} className="block">
         <div className="glass-card group h-full flex flex-col overflow-hidden">
@@ -129,12 +133,15 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
 
 function DirectoryCard({ project, index }: { project: Project; index: number }) {
   const mat = maturityConfig[project.maturity];
+  const { setFocus, clearFocus } = useSetProjectFocus();
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.03 }}
+      onMouseEnter={() => setFocus(project.slug, "card", true)}
+      onMouseLeave={() => clearFocus()}
     >
       <Link href={`/projects/${project.slug}`} className="block">
         <div className="glass-card group p-5 flex flex-col h-full">

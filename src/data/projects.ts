@@ -214,6 +214,7 @@ export const projects: Project[] = [
     deviceType: "iphone",
     accentColor: "#8b5cf6",
     icon: "/projects/icons/bwb-customer.png",
+    screenshot: "/projects/screenshots/bwb.png",
     github: { url: "https://github.com/Diomandeee/BWB", visibility: "private" },
     testflight: { status: "coming-soon" },
     links: [
@@ -427,6 +428,7 @@ export const projects: Project[] = [
     featured: true,
     deviceType: "browser",
     accentColor: "#00d4ff",
+    screenshot: "/projects/screenshots/linkit.png",
     github: { url: "https://github.com/Diomandeee/LinkIt", visibility: "private" },
     links: [{ label: "Live Demo", url: "https://linkit.vercel.app" }],
     features: [
@@ -473,8 +475,9 @@ export const projects: Project[] = [
     featured: true,
     deviceType: "browser",
     accentColor: "#8b5cf6",
+    screenshot: "/projects/screenshots/cc-dashboard.png",
     github: { url: "https://github.com/Diomandeee/compass", visibility: "private" },
-    links: [{ label: "Live Demo", url: "https://cc-dashboard-ebon.vercel.app" }],
+    links: [{ label: "Live Demo", url: "https://compass-dashboard.vercel.app" }],
     features: [
       "Force-directed graph of all repos and dependencies",
       "136 skill inventory with search",
@@ -591,8 +594,9 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "browser",
     accentColor: "#8b5cf6",
+    screenshot: "/projects/screenshots/timeline-app.png",
     github: { url: "https://github.com/Diomandeee/timeline-app", visibility: "private" },
-    links: [{ label: "Live Demo", url: "https://timeline-app-blush.vercel.app" }],
+    links: [{ label: "Live Demo", url: "https://timeline-app.vercel.app" }],
     features: [
       "Interactive timeline rendering",
       "Milestone and event categorization",
@@ -613,6 +617,7 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "browser",
     accentColor: "#06b6d4",
+    screenshot: "/projects/screenshots/session-threads-ui.png",
     github: { url: "https://github.com/Diomandeee/session-threads-ui", visibility: "private" },
     links: [{ label: "Live Demo", url: "https://session-threads-ui.vercel.app" }],
     features: [
@@ -1888,6 +1893,7 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "terminal",
     accentColor: "#ef4444",
+    screenshot: "/projects/screenshots/pulse.png",
     github: { url: "https://github.com/Diomandeee/Pulse", visibility: "private" },
     links: [{ label: "Landing Page", url: "https://pulse-landing.vercel.app" }],
     features: [
@@ -1910,6 +1916,7 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "browser",
     accentColor: "#8b5cf6",
+    screenshot: "/projects/screenshots/plaisir.png",
     github: { url: "https://github.com/Diomandeee/plaisir", visibility: "public" },
     links: [{ label: "Live Site", url: "https://pplaisir.vercel.app" }],
     features: [
@@ -1974,6 +1981,7 @@ export const projects: Project[] = [
     featured: false,
     deviceType: "browser",
     accentColor: "#8b5cf6",
+    screenshot: "/projects/screenshots/audio-engine.png",
     github: { url: "https://github.com/Diomandeee/AudioEngine", visibility: "private" },
     links: [{ label: "Live Demo", url: "https://audio-engine.vercel.app" }],
     features: [

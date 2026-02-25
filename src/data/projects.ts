@@ -164,7 +164,7 @@ export const projects: Project[] = [
     featured: true,
     deviceType: "iphone",
     accentColor: "#06b6d4",
-    github: { url: "https://github.com/Diomandeee/pulse-vision-pipeline", visibility: "private" },
+    github: { url: "https://github.com/Diomandeee/VisionClaw", visibility: "private" },
     testflight: { status: "coming-soon" },
     features: [
       "Real-time camera feed analysis via Gemini",

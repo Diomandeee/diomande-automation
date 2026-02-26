@@ -550,7 +550,10 @@ export const projects: Project[] = [
     accentColor: "#8b5cf6",
     screenshot: "/projects/screenshots/granddiomande.png",
     github: { url: "https://github.com/Diomandeee/granddiomande.com", visibility: "private" },
-    links: [{ label: "Visit Site", url: "https://granddiomande.com" }],
+    links: [
+      { label: "Visit Site", url: "https://granddiomande.com" },
+      { label: "Vercel", url: "https://granddiomandecom.vercel.app" },
+    ],
     features: [
       "Personal brand showcase",
       "Project portfolio gallery",
@@ -2004,7 +2007,9 @@ export const projects: Project[] = [
     featured: true,
     deviceType: "browser",
     accentColor: "#ef4444",
+    screenshot: "/projects/screenshots/mediapipe-creative.png",
     github: { url: "https://github.com/Diomandeee/MediaPipeCreative", visibility: "private" },
+    links: [{ label: "Live Demo", url: "https://mediapipe-creative.vercel.app" }],
     features: [
       "FlexBird — body-controlled flying game",
       "Body Synth — turn movement into music",

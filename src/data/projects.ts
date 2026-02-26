@@ -446,7 +446,7 @@ export const projects: Project[] = [
     description: "Dynamic QR code generation and management with analytics tracking and content updates",
     category: "Web Platforms",
     tags: ["QR", "Analytics"],
-    tech: ["Next.js", "TypeScript", "Supabase"],
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     buildHours: 16,
     maturity: "prototype",
     featured: false,
@@ -454,7 +454,7 @@ export const projects: Project[] = [
     accentColor: "#f59e0b",
     screenshot: "/projects/screenshots/qr-dynamic.png",
     github: { url: "https://github.com/Diomandeee/qr-dynamic", visibility: "private" },
-    links: [{ label: "Live Demo", url: "https://qr-dynamic-diomandeees-projects.vercel.app" }],
+    links: [{ label: "Live Demo", url: "https://qr-dynamic.vercel.app" }],
     features: [
       "Dynamic QR codes with editable destinations",
       "Scan analytics and location tracking",

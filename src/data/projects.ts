@@ -2031,6 +2031,7 @@ export const projects: Project[] = [
     deviceType: "browser",
     accentColor: "#f59e0b",
     github: { url: "https://github.com/Diomandeee/GestureSystem", visibility: "private" },
+    links: [{ label: "Live Demo", url: "https://gesture-system.vercel.app" }],
     features: [
       "Real-time gesture classification",
       "DJ preset mapping from gestures",
@@ -2052,6 +2053,7 @@ export const projects: Project[] = [
     deviceType: "browser",
     accentColor: "#ec4899",
     github: { url: "https://github.com/Diomandeee/ConductorEngine", visibility: "private" },
+    links: [{ label: "Live Demo", url: "https://conductor-engine.vercel.app" }],
     features: [
       "Motion-controlled music orchestration",
       "Musical section trajectory prediction",
@@ -2073,6 +2075,7 @@ export const projects: Project[] = [
     deviceType: "browser",
     accentColor: "#06b6d4",
     github: { url: "https://github.com/Diomandeee/MocopiIntegration", visibility: "private" },
+    links: [{ label: "Live Demo", url: "https://mocopi-integration.vercel.app" }],
     features: [
       "Sony Mocopi sensor integration",
       "Full-body motion capture",

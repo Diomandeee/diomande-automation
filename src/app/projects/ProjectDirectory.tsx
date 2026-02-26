@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useEffect, useRef, lazy, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Filter, Search, X, LayoutGrid, GitBranch, Github, Globe, Unlock } from "lucide-react";
+import { Filter, Search, X, LayoutGrid, GitBranch, Github, Globe, Unlock, ArrowUpDown } from "lucide-react";
 import { projects, categories, type Maturity, type DeviceType } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { trackEvent } from "@/lib/analytics";
@@ -50,6 +50,9 @@ export function ProjectDirectory() {
   const [showHasDemo, setShowHasDemo] = useState(searchParams.get("demo") === "true");
   const [showHasSource, setShowHasSource] = useState(searchParams.get("source") === "true");
   const [showOpenSource, setShowOpenSource] = useState(searchParams.get("oss") === "true");
+  const [sortBy, setSortBy] = useState<"featured" | "name" | "hours" | "maturity">(
+    (searchParams.get("sort") as "featured" | "name" | "hours" | "maturity") || "featured"
+  );
 
   // Debounce search query
   useEffect(() => {
@@ -88,8 +91,9 @@ export function ProjectDirectory() {
       demo: showHasDemo ? "true" : "",
       source: showHasSource ? "true" : "",
       oss: showOpenSource ? "true" : "",
+      sort: sortBy !== "featured" ? sortBy : "",
     });
-  }, [debouncedQuery, activeCategory, maturityFilter, deviceFilter, showHasDemo, showHasSource, showOpenSource, syncURL]);
+  }, [debouncedQuery, activeCategory, maturityFilter, deviceFilter, showHasDemo, showHasSource, showOpenSource, sortBy, syncURL]);
 
   const filtered = useMemo(() => {
     let result = projects;
@@ -137,8 +141,24 @@ export function ProjectDirectory() {
       );
     }
 
+    // Sort
+    const maturityOrder: Record<string, number> = { production: 0, mvp: 1, prototype: 2 };
+    switch (sortBy) {
+      case "name":
+        result = [...result].sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "hours":
+        result = [...result].sort((a, b) => (b.buildHours ?? 0) - (a.buildHours ?? 0));
+        break;
+      case "maturity":
+        result = [...result].sort((a, b) => (maturityOrder[a.maturity] ?? 9) - (maturityOrder[b.maturity] ?? 9));
+        break;
+      default: // featured
+        result = [...result].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+    }
+
     return result;
-  }, [activeCategory, maturityFilter, deviceFilter, showHasDemo, showHasSource, showOpenSource, debouncedQuery]);
+  }, [activeCategory, maturityFilter, deviceFilter, showHasDemo, showHasSource, showOpenSource, debouncedQuery, sortBy]);
 
   const counts = allCategories.map((cat) => ({
     name: cat,
@@ -281,26 +301,41 @@ export function ProjectDirectory() {
             </div>
           </div>
 
-          {/* Quick filter toggles */}
-          <div className="flex items-center gap-2 mb-10">
-            {[
-              { key: "demo", icon: Globe, label: "Has Demo", active: showHasDemo, toggle: () => setShowHasDemo(!showHasDemo) },
-              { key: "source", icon: Github, label: "Has Source", active: showHasSource, toggle: () => setShowHasSource(!showHasSource) },
-              { key: "oss", icon: Unlock, label: "Open Source", active: showOpenSource, toggle: () => setShowOpenSource(!showOpenSource) },
-            ].map(({ key, icon: Icon, label, active, toggle }) => (
-              <button
-                key={key}
-                onClick={toggle}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
-                  active
-                    ? "bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20"
-                    : "bg-white/5 text-[#7a7a95] border border-white/5 hover:text-white hover:border-white/10"
-                }`}
+          {/* Quick filter toggles + sort */}
+          <div className="flex items-center justify-between gap-4 mb-10 flex-wrap">
+            <div className="flex items-center gap-2">
+              {[
+                { key: "demo", icon: Globe, label: "Has Demo", active: showHasDemo, toggle: () => setShowHasDemo(!showHasDemo) },
+                { key: "source", icon: Github, label: "Has Source", active: showHasSource, toggle: () => setShowHasSource(!showHasSource) },
+                { key: "oss", icon: Unlock, label: "Open Source", active: showOpenSource, toggle: () => setShowOpenSource(!showOpenSource) },
+              ].map(({ key, icon: Icon, label, active, toggle }) => (
+                <button
+                  key={key}
+                  onClick={toggle}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+                    active
+                      ? "bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20"
+                      : "bg-white/5 text-[#7a7a95] border border-white/5 hover:text-white hover:border-white/10"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  {label}
+                </button>
+              ))}
+            </div>
+            <div className="flex items-center gap-1.5">
+              <ArrowUpDown className="w-3.5 h-3.5 text-[#6b6b80]" />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                className="bg-white/5 border border-white/[0.08] rounded-lg px-2.5 py-1.5 text-xs text-[#b0b0c8] focus:outline-none focus:border-[#00d4ff]/30 cursor-pointer"
               >
-                <Icon className="w-3.5 h-3.5" />
-                {label}
-              </button>
-            ))}
+                <option value="featured">Featured First</option>
+                <option value="name">Alphabetical</option>
+                <option value="hours">Build Hours</option>
+                <option value="maturity">Maturity</option>
+              </select>
+            </div>
           </div>
 
           {/* Result count */}

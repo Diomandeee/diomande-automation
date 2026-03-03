@@ -27,36 +27,25 @@ function detectType(repo: {
   const topics = (repo.topics || []).map((t: string) => t.toLowerCase());
   const name = (repo.name || "").toLowerCase();
 
-  // iOS detection
   if (lang === "swift" || topics.includes("ios") || topics.includes("swiftui")) {
-    return { type: "ios", category: "iOS & macOS Apps" };
+    return { type: "ios", category: "ios" };
   }
-
-  // Rust detection
   if (lang === "rust") {
-    if (name.includes("lib") || name.includes("kernel") || name.includes("sdk")) {
-      return { type: "rust_lib", category: "AI Infrastructure" };
-    }
-    return { type: "rust_bin", category: "Developer Tools" };
+    return name.includes("lib") || name.includes("kernel") || name.includes("sdk")
+      ? { type: "rust_lib", category: "core" }
+      : { type: "rust_bin", category: "tools" };
   }
-
-  // Python detection
   if (lang === "python") {
-    if (topics.includes("ai") || topics.includes("ml")) {
-      return { type: "python", category: "AI Infrastructure" };
-    }
-    return { type: "python", category: "Developer Tools" };
+    return topics.includes("ai") || topics.includes("ml")
+      ? { type: "python", category: "infrastructure" }
+      : { type: "python", category: "tools" };
   }
-
-  // TypeScript/JavaScript web detection
   if (lang === "typescript" || lang === "javascript") {
-    if (topics.includes("nextjs") || topics.includes("react") || topics.includes("web")) {
-      return { type: "web", category: "Web Platforms" };
-    }
-    return { type: "typescript", category: "Developer Tools" };
+    return topics.includes("nextjs") || topics.includes("react") || topics.includes("web")
+      ? { type: "web", category: "web" }
+      : { type: "typescript", category: "tools" };
   }
-
-  return { type: "unknown", category: "Research" };
+  return { type: "unknown", category: "research" };
 }
 
 export async function POST(request: NextRequest) {
@@ -101,8 +90,10 @@ export async function POST(request: NextRequest) {
         github_id: repo.id,
         slug,
         name: repo.name,
+        display_name: repo.name,
         full_name: repo.full_name,
         description: repo.description || "",
+        path: repo.html_url,
         language: repo.language,
         topics: repo.topics || [],
         homepage: repo.homepage || null,
@@ -112,9 +103,12 @@ export async function POST(request: NextRequest) {
         created_at: repo.created_at,
         updated_at: new Date().toISOString(),
         pushed_at: repo.pushed_at,
-        auto_detected_type: type,
+        project_type: type,
         category,
         maturity: "prototype",
+        state: "active",
+        source_type: "github",
+        created_by: "github-webhook",
       },
       { onConflict: "github_id" }
     );

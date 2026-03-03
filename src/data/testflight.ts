@@ -1,0 +1,216 @@
+// TestFlight expedition — 17 iOS apps in the deployment pipeline
+
+export interface TestFlightApp {
+  name: string;
+  slug: string;
+  bundleId: string;
+  appId?: string;
+  tagline: string;
+  category: string;
+  status: "live" | "processing" | "ready" | "building" | "queued";
+  queue: number;
+  icon?: string;
+  accentColor: string;
+  features: string[];
+  tech: string[];
+}
+
+export const testflightApps: TestFlightApp[] = [
+  // Queue 1
+  {
+    name: "Creative Director",
+    slug: "creative-director",
+    bundleId: "com.diomande.CreativeDirector",
+    tagline: "AI content creation pipeline with Shopify integration",
+    category: "Creative Tools",
+    status: "live",
+    queue: 1,
+    accentColor: "#f59e0b",
+    features: ["Batch content generation", "AI image gen (Nano Banana Pro)", "Shopify publishing", "Content scheduling"],
+    tech: ["SwiftUI", "Supabase", "Nano Banana Pro"],
+  },
+  {
+    name: "NKo Bridge",
+    slug: "learnnko",
+    bundleId: "com.diomande.NKoBridge",
+    appId: "6759935350",
+    tagline: "N'Ko keyboard and language learning platform",
+    category: "Language & Culture",
+    status: "live",
+    queue: 1,
+    accentColor: "#ec4899",
+    features: ["N'Ko script keyboard", "Predictive text", "Language lessons", "Script practice"],
+    tech: ["SwiftUI", "Custom Keyboard Extension"],
+  },
+  // Queue 2
+  {
+    name: "SecuriClaw",
+    slug: "securiclaw",
+    bundleId: "com.diomande.SecuriClaw",
+    tagline: "AI security camera with face recognition and pose detection",
+    category: "Security & Vision",
+    status: "live",
+    queue: 2,
+    accentColor: "#ef4444",
+    features: ["Face recognition", "Pose detection (MediaPipe)", "Live MJPEG streaming", "Timeline history"],
+    tech: ["SwiftUI", "MediaPipe", "CoreML"],
+  },
+  // Queue 3 — BWB Suite
+  {
+    name: "BWB Customer",
+    slug: "bwb-suite",
+    bundleId: "com.diomande.BWBCustomer",
+    tagline: "Customer-facing wine bar experience",
+    category: "Commerce",
+    status: "ready",
+    queue: 3,
+    accentColor: "#8b5cf6",
+    features: ["Digital menu with voice NLU ordering", "Table-side payment", "Loyalty rewards"],
+    tech: ["SwiftUI", "Supabase", "NLU"],
+  },
+  {
+    name: "BWB Kiosk",
+    slug: "bwb-suite",
+    bundleId: "com.diomande.BWBKiosk",
+    tagline: "In-store self-service kiosk",
+    category: "Commerce",
+    status: "ready",
+    queue: 3,
+    accentColor: "#8b5cf6",
+    features: ["Touch-to-order interface", "Wine recommendations", "Order queue display"],
+    tech: ["SwiftUI", "SwiftData"],
+  },
+  {
+    name: "BWB POS",
+    slug: "bwb-suite",
+    bundleId: "com.diomande.BWBPOS",
+    tagline: "Staff point-of-sale terminal",
+    category: "Commerce",
+    status: "ready",
+    queue: 3,
+    accentColor: "#8b5cf6",
+    features: ["Order management", "Payment processing", "Inventory tracking", "Staff dashboard"],
+    tech: ["SwiftUI", "Supabase", "Stripe"],
+  },
+  // Queue 4
+  {
+    name: "LifeOS",
+    slug: "lifeos",
+    bundleId: "com.diomande.LifeOS",
+    tagline: "Voice-first life management from Apple Watch",
+    category: "Health & Productivity",
+    status: "ready",
+    queue: 4,
+    accentColor: "#10b981",
+    features: ["HealthKit integration", "Siri shortcuts", "Clawdbot voice commands", "Watch complications"],
+    tech: ["SwiftUI", "HealthKit", "WatchConnectivity", "SiriKit"],
+  },
+  {
+    name: "Agent Command Center",
+    slug: "agent-command-center",
+    bundleId: "com.diomande.AgentCommandCenter",
+    appId: "6759935555",
+    tagline: "Mission control for autonomous AI agents",
+    category: "AI Infrastructure",
+    status: "ready",
+    queue: 4,
+    accentColor: "#00d4ff",
+    features: ["Fleet status overview", "Parallel agent streams", "Cost tracking", "Channel matrix"],
+    tech: ["SwiftUI", "Supabase", "WebSocket", "TCA"],
+  },
+  {
+    name: "Aura",
+    slug: "aura",
+    bundleId: "com.diomande.Aura",
+    tagline: "Camera mesh client with perception pipeline",
+    category: "Vision & AR",
+    status: "ready",
+    queue: 4,
+    accentColor: "#ec4899",
+    features: ["Camera access mesh", "Gateway bridge", "Perception pipeline", "Multi-device sync"],
+    tech: ["SwiftUI", "AVFoundation"],
+  },
+  {
+    name: "Serenity Soother",
+    slug: "serenity-soother",
+    bundleId: "com.diomande.SerenitySoother",
+    tagline: "Therapeutic relaxation with adaptive soundscapes",
+    category: "Wellness",
+    status: "ready",
+    queue: 4,
+    accentColor: "#8b5cf6",
+    features: ["Adaptive soundscapes", "Guided breathing", "Binaural beats", "Session tracking"],
+    tech: ["SwiftUI", "AVFoundation"],
+  },
+  // Queue 5
+  {
+    name: "OpenClaw Hub",
+    slug: "openclaw-hub",
+    bundleId: "com.diomande.OpenClawHub",
+    appId: "6759936357",
+    tagline: "iOS Discord replacement with TCA architecture",
+    category: "Communication",
+    status: "live",
+    queue: 5,
+    accentColor: "#00d4ff",
+    features: ["Thread-based chat", "Agent dispatch", "Voice commands", "Feed aggregator"],
+    tech: ["SwiftUI", "TCA", "Supabase", "WebSocket"],
+  },
+  {
+    name: "SpeakFlow",
+    slug: "speakflow",
+    bundleId: "com.diomande.SpeakFlow",
+    tagline: "Voice OS with system-wide text injection",
+    category: "Voice & Accessibility",
+    status: "live",
+    queue: 5,
+    accentColor: "#f59e0b",
+    features: ["System-wide dictation", "N'Ko script support", "Reading mode", "Custom keyboard"],
+    tech: ["SwiftUI", "AVFoundation", "Speech Framework"],
+  },
+  {
+    name: "Spore",
+    slug: "spore",
+    bundleId: "com.diomande.Spore",
+    tagline: "Gamified idea garden with 3D evolution",
+    category: "Creativity",
+    status: "live",
+    queue: 5,
+    accentColor: "#10b981",
+    features: ["Plant ideas as seeds", "3D garden (SpriteKit)", "Evolution engine", "Home screen widgets"],
+    tech: ["SwiftUI", "SpriteKit", "WidgetKit", "SwiftData"],
+  },
+  {
+    name: "FirstDate",
+    slug: "firstdate",
+    bundleId: "com.diomande.FirstDate",
+    tagline: "AI-powered date planning companion",
+    category: "Social",
+    status: "ready",
+    queue: 5,
+    accentColor: "#ec4899",
+    features: ["Date idea generator", "Venue suggestions", "Conversation starters", "Shared planning"],
+    tech: ["SwiftUI", "MapKit"],
+  },
+  {
+    name: "Cali Lights",
+    slug: "cali-lights-ios",
+    bundleId: "com.diomande.CaliLights",
+    appId: "6759937049",
+    tagline: "Collaborative photo sharing platform",
+    category: "Social & Photos",
+    status: "live",
+    queue: 5,
+    accentColor: "#f59e0b",
+    features: ["Photo sharing", "Collaborative albums", "Light effects", "Social feed"],
+    tech: ["SwiftUI", "PhotosUI"],
+  },
+];
+
+export const expeditionStats = {
+  totalApps: testflightApps.length,
+  live: testflightApps.filter((a) => a.status === "live").length,
+  ready: testflightApps.filter((a) => a.status === "ready" || a.status === "processing").length,
+  queues: 5,
+  zeroRetries: true,
+};

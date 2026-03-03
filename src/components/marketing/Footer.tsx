@@ -6,6 +6,7 @@ const footerLinks = {
     { href: "#gallery", label: "Gallery" },
     { href: "/dreams", label: "Dream Garden" },
     { href: "/pipeline", label: "iOS Pipeline" },
+    { href: "/testflight", label: "TestFlight Apps" },
     { href: "#membership", label: "Membership" },
     { href: "/docs", label: "Documentation" },
   ],

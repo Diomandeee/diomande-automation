@@ -9,7 +9,7 @@ export async function GET() {
   const { data: projects, error } = await supabase
     .from("project_registry")
     .select("*")
-    .order("pushed_at", { ascending: false });
+    .order("updated_at", { ascending: false });
 
   if (error) {
     return NextResponse.json({ error: "Failed to fetch registry" }, { status: 500 });
@@ -19,7 +19,7 @@ export async function GET() {
     total: projects?.length || 0,
     byLanguage: {} as Record<string, number>,
     byCategory: {} as Record<string, number>,
-    synced: projects?.filter((p) => p.synced_to_site).length || 0,
+    synced: projects?.filter((p) => p.github_id).length || 0,
   };
 
   for (const p of projects || []) {

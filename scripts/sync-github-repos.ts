@@ -55,24 +55,24 @@ function detectType(repo: GitHubRepo): { type: string; category: string } {
   const name = repo.name.toLowerCase();
 
   if (lang === "swift" || topics.includes("ios") || topics.includes("swiftui")) {
-    return { type: "ios", category: "iOS & macOS Apps" };
+    return { type: "ios", category: "ios" };
   }
   if (lang === "rust") {
     return name.includes("lib") || name.includes("kernel")
-      ? { type: "rust_lib", category: "AI Infrastructure" }
-      : { type: "rust_bin", category: "Developer Tools" };
+      ? { type: "rust_lib", category: "core" }
+      : { type: "rust_bin", category: "tools" };
   }
   if (lang === "python") {
     return topics.includes("ai") || topics.includes("ml")
-      ? { type: "python", category: "AI Infrastructure" }
-      : { type: "python", category: "Developer Tools" };
+      ? { type: "python", category: "infrastructure" }
+      : { type: "python", category: "tools" };
   }
   if (lang === "typescript" || lang === "javascript") {
     return topics.includes("nextjs") || topics.includes("react")
-      ? { type: "web", category: "Web Platforms" }
-      : { type: "typescript", category: "Developer Tools" };
+      ? { type: "web", category: "web" }
+      : { type: "typescript", category: "tools" };
   }
-  return { type: "unknown", category: "Research" };
+  return { type: "unknown", category: "research" };
 }
 
 async function fetchAllRepos(): Promise<GitHubRepo[]> {
@@ -118,8 +118,10 @@ async function main() {
       github_id: repo.id,
       slug: slugify(repo.name),
       name: repo.name,
+      display_name: repo.name,
       full_name: repo.full_name,
       description: repo.description || "",
+      path: repo.html_url,
       language: repo.language,
       topics: repo.topics || [],
       homepage: repo.homepage || null,
@@ -129,9 +131,12 @@ async function main() {
       created_at: repo.created_at,
       updated_at: new Date().toISOString(),
       pushed_at: repo.pushed_at,
-      auto_detected_type: type,
+      project_type: type,
       category,
       maturity: "prototype",
+      state: "active",
+      source_type: "github",
+      created_by: "github-sync",
     };
   });
 

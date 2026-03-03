@@ -4,8 +4,9 @@ import { Zap } from "lucide-react";
 const footerLinks = {
   Platform: [
     { href: "#gallery", label: "Gallery" },
+    { href: "/dreams", label: "Dream Garden" },
+    { href: "/pipeline", label: "iOS Pipeline" },
     { href: "#membership", label: "Membership" },
-    { href: "#community", label: "What You Get" },
     { href: "/docs", label: "Documentation" },
   ],
   Community: [

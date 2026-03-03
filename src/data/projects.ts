@@ -117,7 +117,7 @@ export const projects: Project[] = [
     deviceType: "iphone",
     accentColor: "#ef4444",
     github: { url: "https://github.com/Diomandeee/SecuriClaw-Claude", visibility: "private" },
-    testflight: { status: "coming-soon" },
+    testflight: { status: "active" },
     features: [
       "Real-time face recognition with on-device ML",
       "Pose detection via MediaPipe for intrusion alerts",
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     accentColor: "#f59e0b",
     icon: "/projects/icons/speakflow.png",
     github: { url: "https://github.com/Diomandeee/SpeakFlow", visibility: "private" },
-    testflight: { status: "coming-soon" },
+    testflight: { status: "active" },
     features: [
       "System-wide text injection — talk and it types anywhere",
       "Streaming speech-to-text with live transcription",
@@ -190,7 +190,7 @@ export const projects: Project[] = [
     accentColor: "#10b981",
     icon: "/projects/icons/spore.png",
     github: { url: "https://github.com/Diomandeee/Spore", visibility: "private" },
-    testflight: { status: "coming-soon" },
+    testflight: { status: "active" },
     features: [
       "Plant ideas as seeds that grow into visual organisms",
       "3D garden visualization with SpriteKit",
@@ -245,7 +245,7 @@ export const projects: Project[] = [
     accentColor: "#f59e0b",
     icon: "/projects/icons/creative-director.png",
     github: { url: "https://github.com/Diomandeee/CreativeDirector", visibility: "private" },
-    testflight: { status: "coming-soon" },
+    testflight: { status: "active" },
     features: [
       "Batch content generation pipeline",
       "AI image generation with Nano Banana Pro",

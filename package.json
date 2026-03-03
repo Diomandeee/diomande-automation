@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync-hef": "npx tsx scripts/sync-hef.ts"
+    "sync-hef": "npx tsx scripts/sync-hef.ts",
+    "sync-dreams": "npx tsx scripts/sync-dreams.ts",
+    "sync-repos": "npx tsx scripts/sync-github-repos.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",

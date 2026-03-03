@@ -2,6 +2,7 @@ import { Navigation } from "@/components/marketing/Navigation";
 import { Hero } from "@/components/marketing/Hero";
 import { Gallery } from "@/components/marketing/Gallery";
 import { FeatureShowcase } from "@/components/marketing/FeatureShowcase";
+import { DreamFeed } from "@/components/marketing/DreamFeed";
 import { Theater } from "@/components/marketing/Theater";
 import { Pricing } from "@/components/marketing/Pricing";
 import { ContactForm } from "@/components/marketing/ContactForm";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Gallery />
         <FeatureShowcase />
+        <DreamFeed />
         <Theater />
         <Pricing />
         <ContactForm />

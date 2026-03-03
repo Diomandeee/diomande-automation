@@ -10,6 +10,8 @@ import { SoundToggle } from "@/components/shared/SoundToggle";
 const navLinks = [
   { href: "#gallery", label: "Gallery" },
   { href: "/projects", label: "Projects" },
+  { href: "/dreams", label: "Dreams" },
+  { href: "/pipeline", label: "Pipeline" },
   { href: "#membership", label: "Membership" },
   { href: "/docs", label: "Docs" },
 ];
